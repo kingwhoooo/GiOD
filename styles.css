@@ -135,10 +135,60 @@ button {
   font-size: 0.86rem;
 }
 
+.site-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
 .site-nav {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(42, 66, 92, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.56);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.lang-button {
+  min-width: 44px;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color 220ms var(--motion-spring),
+    color 220ms var(--motion-spring),
+    transform 220ms var(--motion-swift),
+    box-shadow 220ms var(--motion-spring);
+}
+
+.lang-button:hover,
+.lang-button:focus-visible {
+  background: rgba(42, 66, 92, 0.08);
+  color: var(--accent-strong);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.lang-button.is-active {
+  background: linear-gradient(135deg, var(--accent-strong), #416180);
+  color: #f7faf3;
+  box-shadow: 0 10px 24px rgba(42, 66, 92, 0.18);
 }
 
 .site-nav a,
@@ -744,12 +794,20 @@ button {
     margin-left: auto;
   }
 
+  .site-actions {
+    width: 100%;
+    order: 3;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 0;
+    gap: 10px;
+  }
+
   .site-nav {
     display: none;
     width: 100%;
     flex-direction: column;
     align-items: stretch;
-    padding-top: 8px;
   }
 
   .site-nav.is-open {
@@ -758,6 +816,10 @@ button {
 
   .site-nav a {
     text-align: center;
+  }
+
+  .lang-switcher {
+    align-self: flex-end;
   }
 
   .hero {
