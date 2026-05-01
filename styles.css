@@ -777,6 +777,7 @@ button {
   margin-top: 22px;
 }
 
+.teacher-grid,
 .feature-grid,
 .event-grid,
 .resource-list {
@@ -785,7 +786,12 @@ button {
   gap: 18px;
 }
 
-.section-shell :is(.history-timeline, .history-support, .discipline-layout, .feature-grid, .event-grid, .resource-list) {
+.teacher-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 22px;
+}
+
+.section-shell :is(.history-timeline, .history-support, .discipline-layout, .teacher-grid, .feature-grid, .event-grid, .resource-list) {
   transform: translate3d(0, var(--scroll-drop), 0);
   transition: transform 140ms linear;
 }
@@ -793,6 +799,7 @@ button {
 .timeline-card,
 .history-note,
 .discipline-summary-card,
+.teacher-card,
 .feature-card,
 .event-card,
 .resource-item,
@@ -806,17 +813,18 @@ button {
   will-change: transform;
 }
 
-.section-shell :is(.stat, .timeline-card, .history-note, .discipline-summary-card, .discipline-pill, .feature-card, .event-card, .resource-item) {
+.section-shell :is(.stat, .timeline-card, .history-note, .discipline-summary-card, .discipline-pill, .teacher-card, .feature-card, .event-card, .resource-item) {
   transform: translate3d(0, var(--scroll-drop), 0);
 }
 
-.section-shell :is(.stat, .timeline-card, .history-note, .discipline-summary-card, .discipline-pill, .feature-card, .event-card, .resource-item):nth-child(odd) {
+.section-shell :is(.stat, .timeline-card, .history-note, .discipline-summary-card, .discipline-pill, .teacher-card, .feature-card, .event-card, .resource-item):nth-child(odd) {
   transform: translate3d(0, var(--scroll-lift), 0);
 }
 
 .timeline-card h3,
 .history-note h3,
 .discipline-summary-card h3,
+.teacher-card h3,
 .feature-card h3,
 .event-card h3 {
   margin: 0 0 10px;
@@ -840,6 +848,39 @@ button {
   display: block;
   margin-bottom: 10px;
   font-size: 1.06rem;
+}
+
+.teacher-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.teacher-avatar {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, var(--accent-strong), #416180);
+  color: #f7f8f3;
+  font-family: "Georgia", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.teacher-name {
+  margin: 0;
+  font-size: 1.18rem;
+}
+
+.teacher-subjects {
+  margin: 0;
+  color: var(--accent-strong);
+  line-height: 1.65;
+  font-weight: 600;
 }
 
 .tradition-highlight {
@@ -921,6 +962,7 @@ button {
   .split-section,
   .discipline-layout,
   .history-support,
+  .teacher-grid,
   .feature-grid,
   .event-grid,
   .resource-list {
