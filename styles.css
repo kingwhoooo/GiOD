@@ -243,6 +243,15 @@ button {
   box-shadow: var(--shadow);
 }
 
+.hero-copy,
+.hero-panel,
+.section-shell {
+  --scroll-lift: 0px;
+  --scroll-drop: 0px;
+  --scroll-tilt: 0deg;
+  --scroll-glow: 0;
+}
+
 .hero-copy {
   padding: 42px;
   border-radius: var(--radius-xl);
@@ -252,6 +261,8 @@ button {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  transform: translate3d(0, var(--scroll-lift), 0);
+  transition: transform 140ms linear, box-shadow 220ms ease;
 }
 
 .hero-copy::before,
@@ -410,7 +421,8 @@ button {
     radial-gradient(circle at top right, rgba(194, 164, 94, 0.18), transparent 28%),
     linear-gradient(160deg, #203247 0%, #314b67 100%);
   color: #f5f6f1;
-  transform: translateZ(0);
+  transform: translate3d(0, var(--scroll-drop), 0);
+  transition: transform 140ms linear, box-shadow 220ms ease;
 }
 
 .hero-panel::after {
@@ -423,6 +435,12 @@ button {
   border-radius: 50%;
   border: 1px solid rgba(194, 164, 94, 0.16);
   background: radial-gradient(circle, rgba(194, 164, 94, 0.18), transparent 68%);
+}
+
+.hero-panel::before {
+  transform: translate3d(0, var(--scroll-lift), 0);
+  opacity: calc(0.75 + (var(--scroll-glow) * 0.22));
+  transition: transform 140ms linear, opacity 160ms linear;
 }
 
 .status,
@@ -463,6 +481,8 @@ button {
     inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   background:
     radial-gradient(circle at center, rgba(34, 45, 56, 0.96), rgba(17, 24, 31, 1));
+  transform: translate3d(0, var(--scroll-lift), 0) rotate(var(--scroll-tilt));
+  transition: transform 140ms linear, box-shadow 220ms ease;
 }
 
 .hero-emblem-frame::before {
@@ -546,6 +566,18 @@ button {
   transform-origin: top center;
 }
 
+.section-shell::before {
+  transform: translate3d(0, var(--scroll-lift), 0) scale(calc(1 + (var(--scroll-glow) * 0.045)));
+  opacity: calc(0.62 + (var(--scroll-glow) * 0.28));
+  transition: transform 140ms linear, opacity 160ms linear;
+}
+
+.section-shell::after {
+  transform: translate3d(0, var(--scroll-drop), 0);
+  opacity: calc(0.32 + (var(--scroll-glow) * 0.2));
+  transition: transform 140ms linear, opacity 160ms linear;
+}
+
 #about .section-shell {
   border-color: rgba(42, 66, 92, 0.14);
 }
@@ -578,6 +610,8 @@ button {
   display: grid;
   gap: 14px;
   margin-bottom: 26px;
+  transform: translate3d(0, var(--scroll-lift), 0);
+  transition: transform 140ms linear;
 }
 
 .section-heading h2 {
@@ -599,6 +633,8 @@ button {
   padding: 18px;
   border-radius: var(--radius-xl);
   background: linear-gradient(145deg, rgba(248, 250, 246, 0.96), rgba(240, 244, 238, 0.92));
+  transform: translate3d(0, var(--scroll-drop), 0);
+  transition: transform 140ms linear;
 }
 
 .stat {
@@ -637,6 +673,11 @@ button {
   gap: 18px;
 }
 
+.section-shell :is(.discipline-grid, .teacher-grid, .feature-grid, .event-grid, .resource-list, .contact-card) {
+  transform: translate3d(0, var(--scroll-drop), 0);
+  transition: transform 140ms linear;
+}
+
 .info-card,
 .feature-card,
 .event-card,
@@ -645,6 +686,16 @@ button {
   padding: 28px;
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 248, 243, 0.88));
+  transition: transform 140ms linear, box-shadow 220ms ease, border-color 220ms ease;
+  will-change: transform;
+}
+
+.section-shell :is(.stat, .info-card, .teacher-card, .feature-card, .event-card, .resource-item, .contact-item) {
+  transform: translate3d(0, var(--scroll-drop), 0);
+}
+
+.section-shell :is(.stat, .info-card, .teacher-card, .feature-card, .event-card, .resource-item, .contact-item):nth-child(odd) {
+  transform: translate3d(0, var(--scroll-lift), 0);
 }
 
 .info-card h3,

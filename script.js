@@ -8,6 +8,11 @@ const translatableNodes = document.querySelectorAll("[data-i18n]");
 const ariaLabelNodes = document.querySelectorAll("[data-i18n-aria-label]");
 const metaDescription = document.querySelector('meta[name="description"]');
 const langSwitcher = document.querySelector(".lang-switcher");
+const heroSection = document.querySelector(".hero");
+const heroCopy = document.querySelector(".hero-copy");
+const heroPanel = document.querySelector(".hero-panel");
+const scrollShells = document.querySelectorAll(".section-shell");
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const LANGUAGE_STORAGE_KEY = "site-language";
 
@@ -393,6 +398,10 @@ const getTranslation = (language, key) => {
   return translations[language]?.[key] ?? translations.ru[key] ?? "";
 };
 
+const clamp = (value, min, max) => {
+  return Math.min(Math.max(value, min), max);
+};
+
 const setLanguage = (language) => {
   const normalizedLanguage = translations[language] ? language : "ru";
 
@@ -454,6 +463,84 @@ try {
 }
 
 setLanguage(initialLanguage);
+
+const resetScrollMotion = () => {
+  [heroCopy, heroPanel, ...scrollShells].filter(Boolean).forEach((element) => {
+    element.style.setProperty("--scroll-lift", "0px");
+    element.style.setProperty("--scroll-drop", "0px");
+    element.style.setProperty("--scroll-tilt", "0deg");
+    element.style.setProperty("--scroll-glow", "0");
+  });
+};
+
+const updateHeroScrollMotion = (viewportHeight) => {
+  if (!heroSection || !heroCopy || !heroPanel) {
+    return;
+  }
+
+  const rect = heroSection.getBoundingClientRect();
+  const relativeCenter = ((rect.top + rect.height / 2) - viewportHeight / 2) / viewportHeight;
+  const depth = clamp(relativeCenter, -1, 1);
+  const progress = clamp(1 - Math.abs(relativeCenter) * 1.4, 0, 1);
+
+  heroCopy.style.setProperty("--scroll-lift", `${(-depth * 26).toFixed(2)}px`);
+  heroCopy.style.setProperty("--scroll-drop", `${(depth * 14).toFixed(2)}px`);
+  heroCopy.style.setProperty("--scroll-tilt", `${(-depth * 1.6).toFixed(2)}deg`);
+  heroCopy.style.setProperty("--scroll-glow", progress.toFixed(3));
+
+  heroPanel.style.setProperty("--scroll-lift", `${(-depth * 18).toFixed(2)}px`);
+  heroPanel.style.setProperty("--scroll-drop", `${(depth * 22).toFixed(2)}px`);
+  heroPanel.style.setProperty("--scroll-tilt", `${(-depth * 2.8).toFixed(2)}deg`);
+  heroPanel.style.setProperty("--scroll-glow", progress.toFixed(3));
+};
+
+const updateSectionScrollMotion = (viewportHeight) => {
+  scrollShells.forEach((shell) => {
+    const rect = shell.getBoundingClientRect();
+    const relativeCenter = ((rect.top + rect.height / 2) - viewportHeight * 0.56) / viewportHeight;
+    const depth = clamp(relativeCenter, -1, 1);
+    const progress = clamp(1 - Math.abs(relativeCenter) * 1.55, 0, 1);
+
+    shell.style.setProperty("--scroll-lift", `${(-depth * 18).toFixed(2)}px`);
+    shell.style.setProperty("--scroll-drop", `${(depth * 16).toFixed(2)}px`);
+    shell.style.setProperty("--scroll-tilt", `${(depth * 1.25).toFixed(2)}deg`);
+    shell.style.setProperty("--scroll-glow", progress.toFixed(3));
+  });
+};
+
+let scrollMotionFrame = null;
+
+const runScrollMotion = () => {
+  scrollMotionFrame = null;
+
+  if (reducedMotionQuery.matches) {
+    resetScrollMotion();
+    return;
+  }
+
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  updateHeroScrollMotion(viewportHeight);
+  updateSectionScrollMotion(viewportHeight);
+};
+
+const scheduleScrollMotion = () => {
+  if (scrollMotionFrame !== null) {
+    return;
+  }
+
+  scrollMotionFrame = window.requestAnimationFrame(runScrollMotion);
+};
+
+window.addEventListener("scroll", scheduleScrollMotion, { passive: true });
+window.addEventListener("resize", scheduleScrollMotion);
+
+if (typeof reducedMotionQuery.addEventListener === "function") {
+  reducedMotionQuery.addEventListener("change", scheduleScrollMotion);
+} else if (typeof reducedMotionQuery.addListener === "function") {
+  reducedMotionQuery.addListener(scheduleScrollMotion);
+}
+
+scheduleScrollMotion();
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
