@@ -1,5 +1,6 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
+const siteHeader = document.querySelector(".site-header");
 const year = document.querySelector("#year");
 const revealItems = document.querySelectorAll(".reveal");
 const stackSections = document.querySelectorAll(".section-stack");
@@ -15,6 +16,11 @@ const scrollShells = document.querySelectorAll(".section-shell");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const LANGUAGE_STORAGE_KEY = "site-language";
+const MOBILE_HEADER_BREAKPOINT = 760;
+const MOBILE_HEADER_COMPACT_OFFSET = 48;
+const MOBILE_HEADER_HIDE_OFFSET = 110;
+const MOBILE_HEADER_HIDE_DELTA = 10;
+const MOBILE_HEADER_SHOW_DELTA = 6;
 
 const translations = {
   ru: {
@@ -371,16 +377,32 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const setMenuOpen = (isOpen) => {
+  if (!menuToggle || !siteNav) {
+    return;
+  }
+
+  siteNav.classList.toggle("is-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+  if (siteHeader) {
+    siteHeader.classList.toggle("menu-open", isOpen);
+    if (isOpen) {
+      siteHeader.classList.remove("is-hidden");
+    }
+  }
+
+  syncMobileHeader();
+};
+
 if (menuToggle && siteNav) {
   menuToggle.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("is-open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    setMenuOpen(!siteNav.classList.contains("is-open"));
   });
 
   siteNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      siteNav.classList.remove("is-open");
-      menuToggle.setAttribute("aria-expanded", "false");
+      setMenuOpen(false);
     });
   });
 }
@@ -400,6 +422,49 @@ const getTranslation = (language, key) => {
 
 const clamp = (value, min, max) => {
   return Math.min(Math.max(value, min), max);
+};
+
+let lastMobileHeaderScrollY = window.scrollY || window.pageYOffset || 0;
+
+const syncMobileHeader = () => {
+  if (!siteHeader) {
+    return;
+  }
+
+  const currentScrollY = window.scrollY || window.pageYOffset || 0;
+  const isMobileViewport = window.innerWidth <= MOBILE_HEADER_BREAKPOINT;
+  const navIsOpen = siteNav?.classList.contains("is-open") ?? false;
+
+  if (!isMobileViewport) {
+    if (navIsOpen) {
+      siteNav.classList.remove("is-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+    }
+
+    siteHeader.classList.remove("is-compact", "is-hidden", "menu-open");
+    lastMobileHeaderScrollY = currentScrollY;
+    return;
+  }
+
+  const shouldCompact = currentScrollY > MOBILE_HEADER_COMPACT_OFFSET;
+  siteHeader.classList.toggle("is-compact", shouldCompact);
+  siteHeader.classList.toggle("menu-open", navIsOpen);
+
+  if (navIsOpen || currentScrollY <= 12) {
+    siteHeader.classList.remove("is-hidden");
+    lastMobileHeaderScrollY = currentScrollY;
+    return;
+  }
+
+  const delta = currentScrollY - lastMobileHeaderScrollY;
+
+  if (currentScrollY > MOBILE_HEADER_HIDE_OFFSET && delta > MOBILE_HEADER_HIDE_DELTA) {
+    siteHeader.classList.add("is-hidden");
+  } else if (delta < -MOBILE_HEADER_SHOW_DELTA) {
+    siteHeader.classList.remove("is-hidden");
+  }
+
+  lastMobileHeaderScrollY = currentScrollY;
 };
 
 const setLanguage = (language) => {
@@ -512,6 +577,7 @@ let scrollMotionFrame = null;
 
 const runScrollMotion = () => {
   scrollMotionFrame = null;
+  syncMobileHeader();
 
   if (reducedMotionQuery.matches) {
     resetScrollMotion();

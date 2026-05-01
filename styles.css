@@ -97,6 +97,13 @@ button {
   background: rgba(251, 252, 249, 0.8);
   backdrop-filter: blur(18px);
   box-shadow: 0 12px 34px rgba(23, 36, 49, 0.08);
+  transition:
+    transform 260ms var(--motion-spring),
+    padding 220ms var(--motion-spring),
+    border-radius 220ms var(--motion-spring),
+    background-color 220ms var(--motion-spring),
+    box-shadow 220ms var(--motion-spring),
+    opacity 220ms var(--motion-spring);
 }
 
 .brand {
@@ -883,12 +890,31 @@ button {
   }
 
   .site-header {
-    top: 8px;
+    top: 6px;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 22px;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 20px;
+  }
+
+  .site-header.is-compact {
+    padding: 6px 8px;
+    border-radius: 18px;
+    background: rgba(251, 252, 249, 0.92);
+    box-shadow: 0 10px 24px rgba(23, 36, 49, 0.12);
+  }
+
+  .site-header.is-hidden:not(.menu-open) {
+    transform: translateY(calc(-100% - 16px));
+    opacity: 0.96;
+    pointer-events: none;
+  }
+
+  .site-header.menu-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .brand {
@@ -897,10 +923,15 @@ button {
   }
 
   .brand-mark {
-    width: 40px;
-    height: 40px;
-    border-radius: 14px;
-    font-size: 0.96rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    transition:
+      width 220ms var(--motion-spring),
+      height 220ms var(--motion-spring),
+      border-radius 220ms var(--motion-spring),
+      font-size 220ms var(--motion-spring);
   }
 
   .brand-copy {
@@ -908,21 +939,38 @@ button {
   }
 
   .brand-copy strong {
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     line-height: 1.15;
+    transition: font-size 220ms var(--motion-spring);
   }
 
   .brand-copy span {
     display: none;
   }
 
+  .site-header.is-compact .brand-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+  }
+
+  .site-header.is-compact .brand-copy strong {
+    font-size: 0.7rem;
+  }
+
   .menu-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 38px;
-    padding: 0 12px;
+    min-height: 34px;
+    padding: 0 10px;
     margin-left: 0;
+    font-size: 0.8rem;
+    transition:
+      min-height 220ms var(--motion-spring),
+      padding 220ms var(--motion-spring),
+      font-size 220ms var(--motion-spring);
   }
 
   .site-actions {
@@ -934,10 +982,16 @@ button {
     gap: 8px;
   }
 
+  .site-header.is-compact .menu-toggle {
+    min-height: 30px;
+    padding: 0 9px;
+    font-size: 0.74rem;
+  }
+
   .site-nav {
     display: none;
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 8px);
     left: 0;
     right: 0;
     flex-direction: column;
@@ -959,15 +1013,32 @@ button {
   }
 
   .lang-switcher {
-    padding: 4px;
+    padding: 3px;
     align-self: auto;
+    transition: padding 220ms var(--motion-spring);
   }
 
   .lang-button {
-    min-width: 36px;
-    min-height: 32px;
-    padding: 0 8px;
-    font-size: 0.74rem;
+    min-width: 32px;
+    min-height: 28px;
+    padding: 0 7px;
+    font-size: 0.68rem;
+    transition:
+      min-width 220ms var(--motion-spring),
+      min-height 220ms var(--motion-spring),
+      padding 220ms var(--motion-spring),
+      font-size 220ms var(--motion-spring);
+  }
+
+  .site-header.is-compact .lang-switcher {
+    padding: 2px;
+  }
+
+  .site-header.is-compact .lang-button {
+    min-width: 28px;
+    min-height: 24px;
+    padding: 0 6px;
+    font-size: 0.62rem;
   }
 
   .hero {
