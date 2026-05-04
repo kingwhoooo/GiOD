@@ -785,6 +785,67 @@ Object.entries(contentOverrides).forEach(([language, values]) => {
   Object.assign(translations[language], values);
 });
 
+const interfaceOverrides = {
+  ru: {
+    "hero.eyebrow": "Военный колледж МО РК",
+    "about.eyebrow": "О цикле",
+    "history.eyebrow": "История",
+    "disciplines.eyebrow": "Дисциплины",
+    "teachers.eyebrow": "Преподаватели",
+    "traditions.eyebrow": "Традиции",
+    "activity.eyebrow": "Деятельность",
+    "achievements.eyebrow": "Достижения",
+    "today.eyebrow": "Цикл сегодня",
+    "contacts.eyebrow": "Контакты",
+    "teachers.photoPlaceholder": "Фото преподавателя",
+    "teachers.experience": "Стаж: информация уточняется",
+    "contacts.mailValue": "Информация уточняется",
+    "contacts.phoneValue": "Информация уточняется",
+    "contacts.scheduleLabel": "График работы",
+    "contacts.scheduleValue": "Информация уточняется",
+  },
+  kk: {
+    "hero.eyebrow": "ҚР ҚМ Әскери колледжі",
+    "about.eyebrow": "Цикл туралы",
+    "history.eyebrow": "Цикл тарихы",
+    "disciplines.eyebrow": "Пәндер",
+    "teachers.eyebrow": "Оқытушылар",
+    "traditions.eyebrow": "Дәстүр мен сабақтастық",
+    "activity.eyebrow": "Қызмет",
+    "achievements.eyebrow": "Жетістіктер",
+    "today.eyebrow": "Цикл бүгін",
+    "contacts.eyebrow": "Байланыс",
+    "teachers.photoPlaceholder": "Оқытушы фотосы",
+    "teachers.experience": "Өтілі: ақпарат нақтылануда",
+    "contacts.mailValue": "Ақпарат нақтылануда",
+    "contacts.phoneValue": "Ақпарат нақтылануда",
+    "contacts.scheduleLabel": "Жұмыс кестесі",
+    "contacts.scheduleValue": "Ақпарат нақтылануда",
+  },
+  en: {
+    "hero.eyebrow": "Military College of MoD RK",
+    "about.eyebrow": "About the cycle",
+    "history.eyebrow": "History",
+    "disciplines.eyebrow": "Disciplines",
+    "teachers.eyebrow": "Faculty",
+    "traditions.eyebrow": "Traditions",
+    "activity.eyebrow": "Activity",
+    "achievements.eyebrow": "Achievements",
+    "today.eyebrow": "The cycle today",
+    "contacts.eyebrow": "Contacts",
+    "teachers.photoPlaceholder": "Faculty photo",
+    "teachers.experience": "Experience: information pending",
+    "contacts.mailValue": "Information pending",
+    "contacts.phoneValue": "Information pending",
+    "contacts.scheduleLabel": "Office hours",
+    "contacts.scheduleValue": "Information pending",
+  },
+};
+
+Object.entries(interfaceOverrides).forEach(([language, values]) => {
+  Object.assign(translations[language], values);
+});
+
 if (year) {
   year.textContent = new Date().getFullYear();
 }
@@ -834,6 +895,44 @@ const getTranslation = (language, key) => {
 
 const clamp = (value, min, max) => {
   return Math.min(Math.max(value, min), max);
+};
+
+const decorateTeacherSubjects = () => {
+  document.querySelectorAll(".teacher-subjects").forEach((node) => {
+    const rawText = node.textContent.trim();
+
+    if (!rawText) {
+      return;
+    }
+
+    const separatorIndex = rawText.indexOf(":");
+    const label = separatorIndex >= 0 ? rawText.slice(0, separatorIndex).trim() : "";
+    const subjectText = separatorIndex >= 0 ? rawText.slice(separatorIndex + 1).trim() : rawText;
+    const subjects = subjectText
+      .split(",")
+      .map((subject) => subject.trim())
+      .filter(Boolean);
+
+    if (!subjects.length) {
+      return;
+    }
+
+    node.textContent = "";
+
+    if (label) {
+      const labelNode = document.createElement("span");
+      labelNode.className = "teacher-subject-label";
+      labelNode.textContent = label;
+      node.append(labelNode);
+    }
+
+    subjects.forEach((subject) => {
+      const subjectNode = document.createElement("span");
+      subjectNode.className = "teacher-tag";
+      subjectNode.textContent = subject;
+      node.append(subjectNode);
+    });
+  });
 };
 
 let lastMobileHeaderScrollY = window.scrollY || window.pageYOffset || 0;
@@ -908,6 +1007,8 @@ const setLanguage = (language) => {
     const key = node.dataset.i18nAriaLabel;
     node.setAttribute("aria-label", getTranslation(normalizedLanguage, key));
   });
+
+  decorateTeacherSubjects();
 
   langButtons.forEach((button) => {
     const isActive = button.dataset.lang === normalizedLanguage;
