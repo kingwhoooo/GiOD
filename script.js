@@ -5,6 +5,7 @@ const year = document.querySelector("#year");
 const revealItems = document.querySelectorAll(".reveal");
 const stackSections = document.querySelectorAll(".section-stack");
 const langButtons = document.querySelectorAll(".lang-button");
+const themeToggle = document.querySelector(".theme-toggle");
 const translatableNodes = document.querySelectorAll("[data-i18n]");
 const ariaLabelNodes = document.querySelectorAll("[data-i18n-aria-label]");
 const metaDescription = document.querySelector('meta[name="description"]');
@@ -16,6 +17,7 @@ const scrollShells = document.querySelectorAll(".section-shell");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const LANGUAGE_STORAGE_KEY = "site-language";
+const THEME_STORAGE_KEY = "site-theme";
 const MOBILE_HEADER_BREAKPOINT = 760;
 const MOBILE_HEADER_COMPACT_OFFSET = 48;
 const MOBILE_HEADER_HIDE_OFFSET = 110;
@@ -846,6 +848,21 @@ Object.entries(interfaceOverrides).forEach(([language, values]) => {
   Object.assign(translations[language], values);
 });
 
+Object.assign(translations.ru, {
+  "theme.toggle": "\u0422\u0435\u043c\u0430",
+  "theme.toggleAria": "\u041f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u0435\u043c\u0443 \u0441\u0430\u0439\u0442\u0430",
+});
+
+Object.assign(translations.kk, {
+  "theme.toggle": "\u0422\u0430\u049b\u044b\u0440\u044b\u043f",
+  "theme.toggleAria": "\u0421\u0430\u0439\u0442 \u0442\u0430\u049b\u044b\u0440\u044b\u0431\u044b\u043d \u0430\u0443\u044b\u0441\u0442\u044b\u0440\u0443",
+});
+
+Object.assign(translations.en, {
+  "theme.toggle": "Theme",
+  "theme.toggleAria": "Switch site theme",
+});
+
 if (year) {
   year.textContent = new Date().getFullYear();
 }
@@ -895,6 +912,32 @@ const getTranslation = (language, key) => {
 
 const clamp = (value, min, max) => {
   return Math.min(Math.max(value, min), max);
+};
+
+const normalizeTheme = (theme) => {
+  return theme === "dark" ? "dark" : "light";
+};
+
+const setTheme = (theme, shouldPersist = true) => {
+  const normalizedTheme = normalizeTheme(theme);
+  const isDark = normalizedTheme === "dark";
+
+  document.body.dataset.theme = normalizedTheme;
+
+  if (themeToggle) {
+    themeToggle.classList.toggle("is-dark", isDark);
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+  }
+
+  if (!shouldPersist) {
+    return;
+  }
+
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, normalizedTheme);
+  } catch (error) {
+    console.warn("Could not persist selected theme.", error);
+  }
 };
 
 const decorateTeacherSubjects = () => {
@@ -1028,6 +1071,28 @@ langButtons.forEach((button) => {
     setLanguage(button.dataset.lang);
   });
 });
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = document.body.dataset.theme === "dark" ? "dark" : "light";
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+}
+
+let initialTheme = "light";
+
+try {
+  const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  if (storedTheme === "dark" || storedTheme === "light") {
+    initialTheme = storedTheme;
+  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    initialTheme = "dark";
+  }
+} catch (error) {
+  console.warn("Could not read saved theme.", error);
+}
+
+setTheme(initialTheme, false);
 
 let initialLanguage = "ru";
 
