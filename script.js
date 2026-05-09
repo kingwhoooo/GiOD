@@ -851,16 +851,40 @@ Object.entries(interfaceOverrides).forEach(([language, values]) => {
 Object.assign(translations.ru, {
   "theme.toggle": "\u0422\u0435\u043c\u0430",
   "theme.toggleAria": "\u041f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0442\u0435\u043c\u0443 \u0441\u0430\u0439\u0442\u0430",
+  "teachers.title": "Преподавательский состав цикла",
+  "teachers.text": "В разделе представлен преподаватель цикла. По мере пополнения состава сюда можно будет добавить новые карточки с фотографиями, должностями, стажем, образованием и преподаваемыми дисциплинами.",
+  "teachers.card1PhotoLabel": "Лингвистика",
+  "teachers.card1Role": "Сержант, преподаватель (лингвист)",
+  "teachers.card1Name": "Хорошун Иван Юрьевич",
+  "teachers.card1Bio": "Сержант Хорошун Иван Юрьевич ведёт занятия по лингвистическому направлению, а также по военной этике и основам военного права. Имеет степень магистра по филологическим наукам и степень бакалавра по специальности «Переводческое дело».",
+  "teachers.card1Subjects": "Дисциплины: лингвистика, военная этика, основы военного права",
+  "teachers.experience": "Общий стаж: 4 года. Педагогический стаж: 2 года.",
 });
 
 Object.assign(translations.kk, {
   "theme.toggle": "\u0422\u0430\u049b\u044b\u0440\u044b\u043f",
   "theme.toggleAria": "\u0421\u0430\u0439\u0442 \u0442\u0430\u049b\u044b\u0440\u044b\u0431\u044b\u043d \u0430\u0443\u044b\u0441\u0442\u044b\u0440\u0443",
+  "teachers.title": "Циклдің оқытушылар құрамы",
+  "teachers.text": "Бұл бөлімде цикл оқытушысы туралы мәлімет берілген. Құрам толыққан сайын мұнда фотосуреті, лауазымы, өтілі, білімі және жүргізетін пәндері көрсетілген жаңа карточкаларды қосуға болады.",
+  "teachers.card1PhotoLabel": "Лингвистика",
+  "teachers.card1Role": "Сержант, оқытушы (лингвист)",
+  "teachers.card1Name": "Хорошун Иван Юрьевич",
+  "teachers.card1Bio": "Сержант Хорошун Иван Юрьевич лингвистика бағыты бойынша, сондай-ақ әскери этика және әскери құқық негіздері пәндері бойынша сабақ жүргізеді. Филология ғылымдары бойынша магистр дәрежесі және «Аударма ісі» мамандығы бойынша бакалавр дәрежесі бар.",
+  "teachers.card1Subjects": "Пәндер: лингвистика, әскери этика, әскери құқық негіздері",
+  "teachers.experience": "Жалпы өтілі: 4 жыл. Педагогикалық өтілі: 2 жыл.",
 });
 
 Object.assign(translations.en, {
   "theme.toggle": "Theme",
   "theme.toggleAria": "Switch site theme",
+  "teachers.title": "Teaching Staff of the Cycle",
+  "teachers.text": "This section presents the current faculty member of the cycle. As the staff list grows, new cards with photos, positions, experience, education and taught disciplines can be added here.",
+  "teachers.card1PhotoLabel": "Linguistics",
+  "teachers.card1Role": "Sergeant, Instructor (Linguist)",
+  "teachers.card1Name": "Ivan Yuryevich Khoroshun",
+  "teachers.card1Bio": "Sergeant Ivan Yuryevich Khoroshun teaches in the field of linguistics, as well as military ethics and fundamentals of military law. He holds a master's degree in philological sciences and a bachelor's degree in Translation Studies.",
+  "teachers.card1Subjects": "Subjects: linguistics, military ethics, fundamentals of military law",
+  "teachers.experience": "Total experience: 4 years. Teaching experience: 2 years.",
 });
 
 if (year) {

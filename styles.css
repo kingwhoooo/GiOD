@@ -1002,6 +1002,25 @@ body[data-theme="dark"] .button-secondary {
   margin-top: 22px;
 }
 
+.teacher-grid-single {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
+.teacher-grid-single .teacher-card:nth-child(n + 2) {
+  display: none;
+}
+
+.teacher-grid-single .teacher-card {
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  align-items: center;
+  gap: 22px;
+}
+
+.teacher-grid-single .teacher-photo {
+  grid-row: 1 / span 5;
+}
+
 .section-shell :is(.history-timeline, .history-support, .discipline-layout, .teacher-grid, .feature-grid, .event-grid, .resource-list) {
   transform: translate3d(0, var(--scroll-drop), 0);
   transition: transform 140ms linear;
@@ -1121,11 +1140,29 @@ body[data-theme="dark"] .button-secondary {
   border: 1px solid rgba(49, 70, 52, 0.08);
 }
 
+.teacher-photo-real {
+  min-height: 420px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(12, 18, 15, 0.12)),
+    var(--glass-card);
+}
+
 .teacher-photo img {
   width: 62%;
   max-width: 140px;
   opacity: 0.12;
   filter: grayscale(1);
+}
+
+.teacher-photo-real img {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: inherit;
+  object-fit: contain;
+  object-position: center top;
+  opacity: 1;
+  filter: none;
 }
 
 .teacher-index {
@@ -1626,6 +1663,15 @@ body[data-theme="dark"] .button-secondary {
 
   .teacher-photo {
     min-height: 188px;
+  }
+
+  .teacher-grid-single .teacher-card {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-grid-single .teacher-photo {
+    grid-row: auto;
+    min-height: 360px;
   }
 
   .stats-panel {
