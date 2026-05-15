@@ -135,8 +135,8 @@ button {
 
 :where(.site-header, .hero, .section-shell, .timeline-card, .history-note, .discipline-summary-card, .teacher-card, .feature-card, .event-card, .resource-item, .contact-item, .site-footer) :where(h1, h2, h3, p, span, strong, a, li) {
   min-width: 0;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .page-shell {
@@ -200,15 +200,15 @@ button {
 .brand-copy strong {
   font-size: 0.98rem;
   font-weight: 700;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .brand-copy span {
   color: var(--muted);
   font-size: 0.86rem;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .site-actions {
@@ -521,8 +521,8 @@ body[data-theme="dark"] .button-secondary {
   line-height: 1.08;
   letter-spacing: 0;
   max-width: 100%;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
   text-wrap: balance;
 }
 
@@ -541,8 +541,8 @@ body[data-theme="dark"] .button-secondary {
   color: var(--muted);
   line-height: 1.75;
   font-size: 1rem;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .hero-text {
@@ -743,8 +743,8 @@ body[data-theme="dark"] .button-secondary {
   font-size: 1.06rem;
   line-height: 1.55;
   font-weight: 600;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .hero-panel-footer {
@@ -754,8 +754,8 @@ body[data-theme="dark"] .button-secondary {
   gap: 8px;
   margin-top: 10px;
   color: rgba(245, 246, 241, 0.9);
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .section {
@@ -1083,8 +1083,8 @@ body[data-theme="dark"] .button-secondary {
   margin: 0 0 10px;
   font-size: 1.22rem;
   line-height: 1.24;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .timeline-card p,
@@ -1207,8 +1207,8 @@ body[data-theme="dark"] .button-secondary {
   margin: 0;
   font-size: 1.34rem;
   line-height: 1.2;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .teacher-subjects {
@@ -1237,8 +1237,8 @@ body[data-theme="dark"] .button-secondary {
   color: var(--accent-strong);
   font-size: 0.88rem;
   font-weight: 700;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .tradition-highlight {
@@ -1293,8 +1293,8 @@ body[data-theme="dark"] .button-secondary {
 .contact-item a {
   line-height: 1.55;
   font-weight: 700;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .site-footer {
@@ -1324,8 +1324,8 @@ body[data-theme="dark"] .button-secondary {
   line-height: 1.08;
   letter-spacing: 0;
   color: var(--ink);
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 
 .footer-text {
