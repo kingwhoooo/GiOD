@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://military-college-humanities.pages.dev/sitemap.xml
