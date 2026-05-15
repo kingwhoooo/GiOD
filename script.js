@@ -1066,7 +1066,8 @@ stackSections.forEach((section, index) => {
 });
 
 const getTranslation = (language, key) => {
-  return translations[language]?.[key] ?? translations.ru[key] ?? "";
+  const languageDictionary = translations[language] || {};
+  return languageDictionary[key] || translations.ru[key] || "";
 };
 
 const clamp = (value, min, max) => {
@@ -1146,12 +1147,14 @@ const syncMobileHeader = () => {
 
   const currentScrollY = window.scrollY || window.pageYOffset || 0;
   const isMobileViewport = window.innerWidth <= MOBILE_HEADER_BREAKPOINT;
-  const navIsOpen = siteNav?.classList.contains("is-open") ?? false;
+  const navIsOpen = siteNav ? siteNav.classList.contains("is-open") : false;
 
   if (!isMobileViewport) {
     if (navIsOpen) {
       siteNav.classList.remove("is-open");
-      menuToggle?.setAttribute("aria-expanded", "false");
+      if (menuToggle) {
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
     }
 
     siteHeader.classList.remove("is-compact", "is-hidden", "menu-open");
@@ -1345,19 +1348,23 @@ if (typeof reducedMotionQuery.addEventListener === "function") {
 
 scheduleScrollMotion();
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  {
-    threshold: 0.12,
-    rootMargin: "0px 0px -70px 0px",
-  }
-);
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -70px 0px",
+    }
+  );
 
-revealItems.forEach((item) => revealObserver.observe(item));
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}

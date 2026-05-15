@@ -1674,6 +1674,14 @@ body[data-theme="dark"] .button-secondary {
     min-height: 360px;
   }
 
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition-delay: 0ms;
+  }
+
   .stats-panel {
     grid-template-columns: 1fr;
   }
