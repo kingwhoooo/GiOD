@@ -1007,7 +1007,7 @@ body[data-theme="dark"] .button-secondary {
   justify-content: center;
 }
 
-.teacher-grid-single .teacher-card:nth-child(n + 7) {
+.teacher-grid-single .teacher-card:nth-child(n + 9) {
   display: none;
 }
 
