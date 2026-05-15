@@ -926,6 +926,12 @@ Object.assign(translations.ru, {
   "teachers.card8Bio": "Образование: Кокшетауский университет имени Ш. Уалиханова, 2006 год. Квалификация: учитель казахского языка и литературы. Методическая проблема: повышение учебной грамотности кадетов через использование информационно-коммуникативных технологий при обучении казахскому языку и литературе.",
   "teachers.card8Subjects": "Дисциплины: казахский язык и литература.",
   "teachers.card8Experience": "Общий педагогический стаж: 30 лет. Стаж работы в Кадетском корпусе: 19 лет.",
+  "teachers.card9PhotoLabel": "Информатика",
+  "teachers.card9Role": "Педагог-модератор, преподаватель информатики",
+  "teachers.card9Name": "Еркебаева Динара Рафагатовна",
+  "teachers.card9Bio": "Образование: высшее, программист-экономист. Методическая проблема: индивидуальный дифференцированный подход на уроках информатики.",
+  "teachers.card9Subjects": "Дисциплины: информатика, логика.",
+  "teachers.card9Experience": "Общий педагогический стаж: 22 года. Стаж работы в Военном колледже МО РК: 22 года.",
 });
 
 Object.assign(translations.kk, {
@@ -973,6 +979,12 @@ Object.assign(translations.kk, {
   "teachers.card8Bio": "Білімі: Ш. Уәлиханов атындағы Көкшетау университеті, 2006 жыл. Біліктілігі: қазақ тілі мен әдебиеті мұғалімі. Әдістемелік мәселесі: қазақ тілі мен әдебиетін оқытуда ақпараттық-коммуникативтік технологияларды пайдалану арқылы кадеттердің оқу сауаттылығын арттыру.",
   "teachers.card8Subjects": "Пәндер: қазақ тілі мен әдебиеті.",
   "teachers.card8Experience": "Жалпы педагогикалық өтілі: 30 жыл. Кадет корпусындағы жұмыс өтілі: 19 жыл.",
+  "teachers.card9PhotoLabel": "Информатика",
+  "teachers.card9Role": "Педагог-модератор, информатика пәнінің оқытушысы",
+  "teachers.card9Name": "Еркебаева Динара Рафагатовна",
+  "teachers.card9Bio": "Білімі: жоғары, бағдарламашы-экономист. Әдістемелік мәселесі: информатика сабақтарында жеке сараланған тәсілді қолдану.",
+  "teachers.card9Subjects": "Пәндер: информатика, логика.",
+  "teachers.card9Experience": "Жалпы педагогикалық өтілі: 22 жыл. ҚР ҚМ Әскери колледжіндегі жұмыс өтілі: 22 жыл.",
 });
 
 Object.assign(translations.en, {
@@ -1020,6 +1032,12 @@ Object.assign(translations.en, {
   "teachers.card8Bio": "Education: Kokshetau University named after Sh. Ualikhanov, 2006. Qualification: teacher of Kazakh language and literature. Methodological focus: improving cadets' learning literacy through information and communication technologies in teaching Kazakh language and literature.",
   "teachers.card8Subjects": "Subjects: Kazakh language and literature.",
   "teachers.card8Experience": "Total teaching experience: 30 years. Experience at the Cadet Corps: 19 years.",
+  "teachers.card9PhotoLabel": "Informatics",
+  "teachers.card9Role": "Teacher-Moderator, Informatics Instructor",
+  "teachers.card9Name": "Dinara Rafagatovna Erkebaeva",
+  "teachers.card9Bio": "Education: higher education, programmer-economist. Methodological focus: an individual differentiated approach in informatics lessons.",
+  "teachers.card9Subjects": "Subjects: informatics, logic.",
+  "teachers.card9Experience": "Total teaching experience: 22 years. Experience at the Military College of MoD RK: 22 years.",
 });
 
 if (year) {
