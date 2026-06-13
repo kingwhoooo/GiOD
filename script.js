@@ -937,7 +937,7 @@ Object.assign(translations.ru, {
   "teachers.card10Name": "Казымов Талгат Муратович",
   "teachers.card10Bio": "Образование: Жетисуский государственный университет имени Ильяса Жансугурова, бакалавр по специальности «Педагогика и психология», г. Талдыкорган; университет имени Абая Мырзахметова, магистр по специальности «Педагогика и психология», г. Кокшетау.",
   "teachers.card10Subjects": "Дисциплины: военная педагогика и психология, военная этика.",
-  "teachers.card10Experience": "Стаж работы: 5 лет.",
+  "teachers.card10Experience": "Общий стаж: с 2010 года. Педагогический стаж: с 2021 года.",
 });
 
 Object.assign(translations.kk, {
@@ -996,7 +996,7 @@ Object.assign(translations.kk, {
   "teachers.card10Name": "Казымов Талгат Муратович",
   "teachers.card10Bio": "Білімі: Ілияс Жансүгіров атындағы Жетісу мемлекеттік университеті, «Педагогика және психология» мамандығы бойынша бакалавр, Талдықорған қаласы; Абай Мырзахметов атындағы университеті, «Педагогика және психология» мамандығы бойынша магистр, Көкшетау қаласы.",
   "teachers.card10Subjects": "Пәндер: әскери педагогика және психология, әскери этика.",
-  "teachers.card10Experience": "Жұмыс өтілі: 5 жыл.",
+  "teachers.card10Experience": "Жалпы жұмыс өтілі: 2010 жылдан. Педагогикалық өтілі: 2021 жылдан.",
 });
 
 Object.assign(translations.en, {
@@ -1055,7 +1055,7 @@ Object.assign(translations.en, {
   "teachers.card10Name": "Talgat Muratovich Kazymov",
   "teachers.card10Bio": "Education: Zhetysu State University named after Ilyas Zhansugurov, Bachelor's degree in Pedagogy and Psychology, Taldykorgan; Abay Myrzakhmetov University, Master's degree in Pedagogy and Psychology, Kokshetau.",
   "teachers.card10Subjects": "Subjects: military pedagogy and psychology, military ethics.",
-  "teachers.card10Experience": "Work experience: 5 years.",
+  "teachers.card10Experience": "Total experience: since 2010. Teaching experience: since 2021.",
 });
 
 if (year) {
