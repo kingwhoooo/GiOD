@@ -932,6 +932,12 @@ Object.assign(translations.ru, {
   "teachers.card9Bio": "Образование: высшее, программист-экономист. Методическая проблема: индивидуальный дифференцированный подход на уроках информатики.",
   "teachers.card9Subjects": "Дисциплины: информатика, логика.",
   "teachers.card9Experience": "Общий педагогический стаж: 22 года. Стаж работы в Военном колледже МО РК: 22 года.",
+  "teachers.card10PhotoLabel": "Военная педагогика",
+  "teachers.card10Role": "Сержант 2 класса, сержант цикла",
+  "teachers.card10Name": "Казымов Талгат Муратович",
+  "teachers.card10Bio": "Образование: Жетисуский государственный университет имени Ильяса Жансугурова, бакалавр по специальности «Педагогика и психология», г. Талдыкорган; университет имени Абая Мырзахметова, магистр по специальности «Педагогика и психология», г. Кокшетау.",
+  "teachers.card10Subjects": "Дисциплины: военная педагогика и психология, военная этика.",
+  "teachers.card10Experience": "Стаж работы: 5 лет.",
 });
 
 Object.assign(translations.kk, {
@@ -985,6 +991,12 @@ Object.assign(translations.kk, {
   "teachers.card9Bio": "Білімі: жоғары, бағдарламашы-экономист. Әдістемелік мәселесі: информатика сабақтарында жеке сараланған тәсілді қолдану.",
   "teachers.card9Subjects": "Пәндер: информатика, логика.",
   "teachers.card9Experience": "Жалпы педагогикалық өтілі: 22 жыл. ҚР ҚМ Әскери колледжіндегі жұмыс өтілі: 22 жыл.",
+  "teachers.card10PhotoLabel": "Әскери педагогика",
+  "teachers.card10Role": "2-сыныпты сержант, цикл сержанты",
+  "teachers.card10Name": "Казымов Талгат Муратович",
+  "teachers.card10Bio": "Білімі: Ілияс Жансүгіров атындағы Жетісу мемлекеттік университеті, «Педагогика және психология» мамандығы бойынша бакалавр, Талдықорған қаласы; Абай Мырзахметов атындағы университеті, «Педагогика және психология» мамандығы бойынша магистр, Көкшетау қаласы.",
+  "teachers.card10Subjects": "Пәндер: әскери педагогика және психология, әскери этика.",
+  "teachers.card10Experience": "Жұмыс өтілі: 5 жыл.",
 });
 
 Object.assign(translations.en, {
@@ -1038,6 +1050,12 @@ Object.assign(translations.en, {
   "teachers.card9Bio": "Education: higher education, programmer-economist. Methodological focus: an individual differentiated approach in informatics lessons.",
   "teachers.card9Subjects": "Subjects: informatics, logic.",
   "teachers.card9Experience": "Total teaching experience: 22 years. Experience at the Military College of MoD RK: 22 years.",
+  "teachers.card10PhotoLabel": "Military Pedagogy",
+  "teachers.card10Role": "Sergeant 2nd Class, Cycle Sergeant",
+  "teachers.card10Name": "Talgat Muratovich Kazymov",
+  "teachers.card10Bio": "Education: Zhetysu State University named after Ilyas Zhansugurov, Bachelor's degree in Pedagogy and Psychology, Taldykorgan; Abay Myrzakhmetov University, Master's degree in Pedagogy and Psychology, Kokshetau.",
+  "teachers.card10Subjects": "Subjects: military pedagogy and psychology, military ethics.",
+  "teachers.card10Experience": "Work experience: 5 years.",
 });
 
 if (year) {
