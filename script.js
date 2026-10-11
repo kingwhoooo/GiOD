@@ -8,6 +8,8 @@ const newsPause = document.querySelector(".news-pause");
 const newsTrack = document.querySelector(".news-track");
 let language = document.documentElement.lang in translations ? document.documentElement.lang : "ru";
 let newsPaused = false;
+let newsController;
+let newsLastAttempt = 0;
 
 const readPreference = (key) => {
   try { return localStorage.getItem(key); } catch { return null; }
@@ -63,26 +65,94 @@ function decorateSubjects() {
 }
 
 function syncNews() {
-  newsTrack.querySelectorAll("[data-news-copy]").forEach((element) => element.remove());
-  const original = newsTrack.querySelector(".news-message");
-  const copy = original.cloneNode(true);
-  copy.removeAttribute("data-i18n");
-  copy.removeAttribute("data-news-source");
-  copy.dataset.newsCopy = "";
-  copy.setAttribute("aria-hidden", "true");
-  copy.setAttribute("tabindex", "-1");
-  newsTrack.append(copy);
   newsStrip.classList.toggle("is-paused", newsPaused);
   newsPause.setAttribute("aria-pressed", String(newsPaused));
   newsPause.setAttribute("aria-label", translate(newsPaused ? "news.resume" : "news.pause"));
-  newsPause.querySelector("span").textContent = newsPaused ? "▶" : "Ⅱ";
-  document.querySelectorAll("[data-news-source], [data-news-copy]").forEach((link) => {
-    const source = new URL("https://www.gov.kz/memleket/entities/mod/press/news");
-    source.searchParams.set("lang", language);
-    link.href = source.href;
+  newsPause.querySelector("span").textContent = newsPaused ? "\u25b6" : "\u2161";
+  document.querySelectorAll("[data-news-source]").forEach((link) => {
+    link.href = `https://www.akorda.kz/${language === "kk" ? "kz" : language}/events`;
   });
 }
 newsPause.addEventListener("click", () => { newsPaused = !newsPaused; syncNews(); });
+
+function newsStatus(key) {
+  newsStrip.classList.remove("has-news");
+  newsStrip.querySelector(".news-label").removeAttribute("data-cache-label");
+  const message = document.createElement("span");
+  message.className = "news-message";
+  message.textContent = translate(key);
+  newsTrack.replaceChildren(message);
+  newsPause.disabled = true;
+}
+
+function renderNews(data) {
+  const list = document.createElement("ul");
+  list.className = "news-items";
+  const prefix = `/${language === "kk" ? "kz" : language}/`;
+  for (const item of Array.isArray(data.items) ? data.items.slice(0, 6) : []) {
+    let url;
+    try { url = new URL(item.url); } catch { continue; }
+    if (url.origin !== "https://www.akorda.kz" || !url.pathname.startsWith(prefix) || url.username || url.password || url.search || url.hash) continue;
+    if (typeof item.title !== "string" || !item.title.trim() || item.title.length > 500 || typeof item.publishedLabel !== "string" || item.publishedLabel.length > 80) continue;
+    const entry = document.createElement("li");
+    const link = document.createElement("a");
+    link.className = "news-headline";
+    link.href = url.href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    const date = document.createElement("time");
+    date.textContent = item.publishedLabel;
+    const title = document.createElement("span");
+    title.textContent = item.title;
+    link.append(date, title);
+    entry.append(link);
+    list.append(entry);
+  }
+  if (!list.children.length) throw new Error("No valid news");
+  const copy = list.cloneNode(true);
+  copy.dataset.newsCopy = "";
+  copy.setAttribute("aria-hidden", "true");
+  copy.querySelectorAll("a").forEach((link) => { link.tabIndex = -1; });
+  newsTrack.replaceChildren(list, copy);
+  newsStrip.classList.add("has-news");
+  newsPause.disabled = false;
+  const label = newsStrip.querySelector(".news-label");
+  if (data.stale) label.dataset.cacheLabel = translate("news.saved");
+  else label.removeAttribute("data-cache-label");
+  newsStrip.querySelector(".news-feedback").textContent = translate(data.stale ? "news.cached" : "news.updated");
+  requestAnimationFrame(() => newsTrack.style.setProperty("--news-duration", `${Math.max(30, list.scrollWidth / 42)}s`));
+  syncNews();
+}
+
+async function loadNews(reset = false) {
+  newsController?.abort();
+  const controller = new AbortController();
+  newsController = controller;
+  const requestedLanguage = language;
+  newsLastAttempt = Date.now();
+  if (reset) newsStatus(location.protocol === "file:" ? "news.local" : "news.message");
+  if (location.protocol === "file:") return;
+  const timeout = setTimeout(() => controller.abort(), 12000);
+  try {
+    const response = await fetch(`/api/news?lang=${requestedLanguage}`, { signal: controller.signal, headers: { Accept: "application/json" } });
+    if (!response.ok) throw new Error("News unavailable");
+    const data = await response.json();
+    if (controller !== newsController || requestedLanguage !== language) return;
+    renderNews(data);
+  } catch {
+    if (controller !== newsController || requestedLanguage !== language) return;
+    if (!newsStrip.classList.contains("has-news")) newsStatus("news.unavailable");
+    else newsStrip.querySelector(".news-label").dataset.cacheLabel = translate("news.saved");
+    newsStrip.querySelector(".news-feedback").textContent = translate("news.unavailable");
+  } finally { clearTimeout(timeout); }
+}
+
+setInterval(() => {
+  if (!document.hidden) loadNews();
+}, 30 * 60 * 1000);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && Date.now() - newsLastAttempt >= 30 * 60 * 1000) loadNews();
+});
 
 function setLanguage(next) {
   language = next in translations ? next : "ru";
@@ -106,6 +176,7 @@ function setLanguage(next) {
   });
   decorateSubjects();
   syncNews();
+  loadNews(true);
 }
 
 langLinks.forEach((link) => {

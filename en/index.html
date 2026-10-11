@@ -79,13 +79,14 @@
       >Menu</button>
     </header>
 
-    <aside class="news-strip" aria-label="GOV.KZ">
-      <span class="news-label" data-i18n="news.label">MoD RK</span>
+    <aside class="news-strip" aria-label="News of the President of the Republic of Kazakhstan" data-i18n-aria-label="news.aria">
+      <span class="news-label" data-i18n="news.label">Akorda</span>
       <div class="news-window"><div class="news-track">
-        <a class="news-message" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=en" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.message">Official news of the Ministry of Defence of the Republic of Kazakhstan — on GOV.KZ</a>
+        <span class="news-message" data-news-status data-i18n="news.message">Loading news of the President of the Republic of Kazakhstan...</span>
       </div></div>
-      <button class="news-pause" type="button" aria-pressed="false" aria-label="Pause ticker" data-i18n-aria-label="news.pause"><span aria-hidden="true">Ⅱ</span></button>
-      <a class="news-source" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=en" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">Visit source</a>
+      <span class="news-feedback" role="status" aria-live="polite"></span>
+      <button class="news-pause" type="button" aria-pressed="false" aria-label="Pause ticker" data-i18n-aria-label="news.pause" disabled><span aria-hidden="true">Ⅱ</span></button>
+      <a class="news-source" href="https://www.akorda.kz/en/events" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">All news</a>
     </aside>
 
     <main id="top">

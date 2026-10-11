@@ -52,14 +52,30 @@ h1, h2, h3, p, span, strong { min-width: 0; hyphens: none; word-break: normal; o
 .theme-toggle-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .menu-toggle { display: none; min-height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--ink); font-size: .75rem; }
 
-.news-strip { display: flex; align-items: center; gap: 16px; min-width: 0; margin-top: 16px; padding: 10px 16px; border-block: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+.news-strip { display: flex; align-items: center; gap: 16px; min-width: 0; margin-top: 16px; padding: 10px 16px; border-block: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
+.news-strip:not(.has-news) { flex-wrap: wrap; }
+.news-strip:not(.has-news) .news-window { order: 3; flex-basis: 100%; }
+.news-strip:not(.has-news) .news-source { display: inline; margin-left: auto; }
 .news-label { color: var(--accent); font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+.news-label[data-cache-label]::after { content: attr(data-cache-label); display: block; font-size: .8em; letter-spacing: 0; color: var(--muted); }
 .news-window { min-width: 0; flex: 1; overflow: hidden; }
-.news-track { display: flex; width: max-content; animation: news-scroll 32s linear infinite; }
-.news-message { white-space: nowrap; padding-right: 64px; }
-.news-strip:hover .news-track, .news-strip:focus-within .news-track, .news-strip.is-paused .news-track { animation-play-state: paused; }
+.news-track { display: flex; width: max-content; }
+.news-strip:not(.has-news) .news-track { width: auto; }
+.news-strip.has-news .news-track { animation: news-scroll var(--news-duration, 120s) linear infinite; }
+.news-message { white-space: normal; }
+.news-items { display: flex; align-items: center; gap: 48px; list-style: none; margin: 0; padding: 0 48px 0 0; }
+.news-items li { flex-shrink: 0; }
+.news-headline { display: flex; align-items: center; gap: 12px; white-space: nowrap; padding-block: 5px; }
+.news-headline time { color: var(--gold); font-size: .9em; }
+.news-headline:hover span { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.news-strip:hover .news-track { animation-play-state: paused; }
+.news-strip.is-paused .news-track, .news-window:focus-within .news-track { animation: none; }
+.news-strip.is-paused .news-window, .news-window:focus-within { overflow-x: auto; }
+.news-strip.is-paused [data-news-copy], .news-window:focus-within [data-news-copy] { display: none; }
+.news-feedback { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .news-source { flex-shrink: 0; color: var(--accent); border-bottom: 1px solid var(--line); }
 .news-pause { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--accent); }
+.news-pause:disabled { display: none; }
 @keyframes news-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 .hero { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 24px; align-items: stretch; padding: 44px 0 32px; }
@@ -179,7 +195,7 @@ h1, h2, h3, p, span, strong { min-width: 0; hyphens: none; word-break: normal; o
   .lang-button { min-height: 36px; min-width: 29px; font-size: .64rem; }
   .theme-toggle { width: 34px; height: 40px; }
   .menu-toggle { padding: 0 9px; font-size: .7rem; }
-  .news-strip { padding: 8px 4px; gap: 10px; font-size: .68rem; }
+  .news-strip { padding: 8px 4px; gap: 10px; font-size: .75rem; }
   .news-source { display: none; }
   .hero { grid-template-columns: 1fr; gap: 18px; padding: 24px 0 16px; }
   .hero-copy { padding: 24px; }
@@ -228,7 +244,7 @@ h1, h2, h3, p, span, strong { min-width: 0; hyphens: none; word-break: normal; o
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal.is-pending { opacity: 1; transform: none; }
-  .news-track { width: auto; }
-  .news-message { white-space: normal; padding-right: 0; }
-  .news-message[aria-hidden] { display: none; }
+  .news-window { overflow-x: auto; }
+  .news-message { white-space: normal; }
+  [data-news-copy] { display: none; }
 }

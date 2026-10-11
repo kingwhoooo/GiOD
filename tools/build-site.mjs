@@ -22,7 +22,7 @@ template = template.replace(/<article class="teacher-card">([\s\S]*?)<\/article>
 template = template.replace(/<img src="assets\/([^".]+)\.png"([^>]*)>/g, (_, name, attributes) => `<img src="assets/${name}.webp"${attributes} width="600" height="750" decoding="async">`);
 template = template.replace(/(<meta property="og:image" content=")[^"]+/, '$1https://military-college-humanities.pages.dev/assets/emblem-social.png');
 const usedKeys = new Set([...template.matchAll(/data-i18n(?:-aria-label)?="([^"]+)"/g)].map((match) => match[1]));
-for (const key of ["site.title", "meta.description", "news.resume"]) usedKeys.add(key);
+for (const key of ["site.title", "meta.description", "news.resume", "news.unavailable", "news.local", "news.updated", "news.cached", "news.saved"]) usedKeys.add(key);
 for (const language of Object.keys(translations)) {
   translations[language] = Object.fromEntries(Object.entries(translations[language]).filter(([key]) => usedKeys.has(key)));
 }
@@ -55,7 +55,7 @@ for (const language of languages) {
     const href = target === "ru" ? prefix || "./" : `${prefix}${target}/`;
     return tag.replace(/href="[^"]*"/, `href="${href}"`).replace(/class="[^"]*"/, `class="lang-button${target === language ? " is-active" : ""}"`);
   });
-  html = html.replace(/(data-news-source[^>]*>|href="https:\/\/www\.gov\.kz\/memleket\/entities\/mod\/press\/news\?lang=)ru/g, `$1${language}`);
+  html = html.replace(/href="https:\/\/www\.akorda\.kz\/ru\/events"/g, `href="https://www.akorda.kz/${language === "kk" ? "kz" : language}/events"`);
   if (language !== "ru") {
     html = html.replaceAll('src="assets/', 'src="../assets/').replaceAll('href="assets/', 'href="../assets/');
     html = html.replace(/(src|href)="(styles\.css|translations\.js|script\.js)"/g, '$1="../$2"');

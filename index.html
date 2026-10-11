@@ -79,13 +79,14 @@
       >Меню</button>
     </header>
 
-    <aside class="news-strip" aria-label="GOV.KZ">
-      <span class="news-label" data-i18n="news.label">МО РК</span>
+    <aside class="news-strip" aria-label="Новости Президента Республики Казахстан" data-i18n-aria-label="news.aria">
+      <span class="news-label" data-i18n="news.label">Акорда</span>
       <div class="news-window"><div class="news-track">
-        <a class="news-message" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=ru" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.message">Официальные новости Министерства обороны Республики Казахстан — на портале GOV.KZ</a>
+        <span class="news-message" data-news-status data-i18n="news.message">Загрузка новостей Президента Республики Казахстан...</span>
       </div></div>
-      <button class="news-pause" type="button" aria-pressed="false" aria-label="Приостановить строку" data-i18n-aria-label="news.pause"><span aria-hidden="true">Ⅱ</span></button>
-      <a class="news-source" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=ru" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">Открыть источник</a>
+      <span class="news-feedback" role="status" aria-live="polite"></span>
+      <button class="news-pause" type="button" aria-pressed="false" aria-label="Приостановить строку" data-i18n-aria-label="news.pause" disabled><span aria-hidden="true">Ⅱ</span></button>
+      <a class="news-source" href="https://www.akorda.kz/ru/events" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">Все новости</a>
     </aside>
 
     <main id="top">

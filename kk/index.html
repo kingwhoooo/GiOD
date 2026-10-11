@@ -79,13 +79,14 @@
       >Мәзір</button>
     </header>
 
-    <aside class="news-strip" aria-label="GOV.KZ">
-      <span class="news-label" data-i18n="news.label">ҚР ҚМ</span>
+    <aside class="news-strip" aria-label="Қазақстан Республикасы Президентінің жаңалықтары" data-i18n-aria-label="news.aria">
+      <span class="news-label" data-i18n="news.label">Ақорда</span>
       <div class="news-window"><div class="news-track">
-        <a class="news-message" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=kk" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.message">Қазақстан Республикасы Қорғаныс министрлігінің ресми жаңалықтары — GOV.KZ порталында</a>
+        <span class="news-message" data-news-status data-i18n="news.message">Қазақстан Республикасы Президентінің жаңалықтары жүктелуде...</span>
       </div></div>
-      <button class="news-pause" type="button" aria-pressed="false" aria-label="Жолды тоқтату" data-i18n-aria-label="news.pause"><span aria-hidden="true">Ⅱ</span></button>
-      <a class="news-source" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=kk" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">Дереккөзді ашу</a>
+      <span class="news-feedback" role="status" aria-live="polite"></span>
+      <button class="news-pause" type="button" aria-pressed="false" aria-label="Жолды тоқтату" data-i18n-aria-label="news.pause" disabled><span aria-hidden="true">Ⅱ</span></button>
+      <a class="news-source" href="https://www.akorda.kz/kz/events" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">Барлық жаңалықтар</a>
     </aside>
 
     <main id="top">
