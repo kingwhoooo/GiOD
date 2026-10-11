@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Официальная страница цикла гуманитарных дисциплин Военного колледжа Министерства обороны Республики Казахстан. Информация о дисциплинах, преподавателях, истории и деятельности цикла."
+    content="Дисциплины, преподаватели, история и деятельность цикла гуманитарных и общеобразовательных дисциплин Военного колледжа МО Республики Казахстан."
   >
   <meta
     name="keywords"
@@ -13,14 +13,20 @@
   >
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://military-college-humanities.pages.dev/">
-  <meta property="og:title" content="Цикл гуманитарных дисциплин | Военный колледж МО РК">
+  <link rel="alternate" hreflang="ru" href="https://military-college-humanities.pages.dev/">
+  <link rel="alternate" hreflang="kk" href="https://military-college-humanities.pages.dev/kk/">
+  <link rel="alternate" hreflang="en" href="https://military-college-humanities.pages.dev/en/">
+  <link rel="alternate" hreflang="x-default" href="https://military-college-humanities.pages.dev/">
+  <meta property="og:title" content="Цикл гуманитарных и общеобразовательных дисциплин | Военный колледж МО РК">
   <meta
     property="og:description"
-    content="Официальная страница цикла гуманитарных дисциплин Военного колледжа Министерства обороны Республики Казахстан. Информация о дисциплинах, преподавателях, истории и деятельности цикла."
+    content="Дисциплины, преподаватели, история и деятельность цикла гуманитарных и общеобразовательных дисциплин Военного колледжа МО Республики Казахстан."
   >
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://military-college-humanities.pages.dev/">
-  <title>Цикл гуманитарных дисциплин | Военный колледж МО РК</title>
+  <meta property="og:image" content="https://military-college-humanities.pages.dev/assets/emblem-social.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <title>Цикл гуманитарных и общеобразовательных дисциплин | Военный колледж МО РК</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-theme="light">
@@ -29,7 +35,7 @@
       <a class="brand" href="#top" aria-label="На главную" data-i18n-aria-label="brand.homeAria">
         <span class="brand-mark">ЦГ</span>
         <span class="brand-copy">
-          <strong data-i18n="brand.college">Военный колледж</strong>
+          <strong data-i18n="brand.college">Военный колледж МО РК</strong>
           <span data-i18n="brand.cycle">Цикл гуманитарных и общеобразовательных дисциплин</span>
         </span>
       </a>
@@ -43,23 +49,24 @@
           <a href="#traditions" data-i18n="nav.traditions">Традиции</a>
           <a href="#activity" data-i18n="nav.activity">Деятельность</a>
           <a href="#today" data-i18n="nav.today">Сегодня</a>
+          <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
         </nav>
 
-        <div class="lang-switcher" aria-label="Переключение языка">
-          <button class="lang-button is-active" type="button" data-lang="ru">RU</button>
-          <button class="lang-button" type="button" data-lang="kk">KZ</button>
-          <button class="lang-button" type="button" data-lang="en">EN</button>
+        <div class="lang-switcher" aria-label="Переключение языка" data-i18n-aria-label="lang.switcherAria">
+          <a class="lang-button is-active" href="./" data-lang="ru" hreflang="ru" lang="ru" aria-label="Русский">RU</a>
+          <a class="lang-button" href="kk/" data-lang="kk" hreflang="kk" lang="kk" aria-label="Қазақша">KZ</a>
+          <a class="lang-button" href="en/" data-lang="en" hreflang="en" lang="en" aria-label="English">EN</a>
         </div>
 
         <button
           class="theme-toggle"
           type="button"
           aria-pressed="false"
-          aria-label="Switch site theme"
+          aria-label="Переключить тему сайта"
           data-i18n-aria-label="theme.toggleAria"
         >
           <span class="theme-toggle-icon" aria-hidden="true"></span>
-          <span class="theme-toggle-text" data-i18n="theme.toggle">Theme</span>
+          <span class="theme-toggle-text" data-i18n="theme.toggle">Тема</span>
         </button>
       </div>
 
@@ -69,43 +76,42 @@
         aria-expanded="false"
         aria-controls="site-nav"
         data-i18n="menu.toggle"
-      >
-        Меню
-      </button>
+      >Меню</button>
     </header>
+
+    <aside class="news-strip" aria-label="GOV.KZ">
+      <span class="news-label" data-i18n="news.label">МО РК</span>
+      <div class="news-window"><div class="news-track">
+        <a class="news-message" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=ru" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.message">Официальные новости Министерства обороны Республики Казахстан — на портале GOV.KZ</a>
+      </div></div>
+      <button class="news-pause" type="button" aria-pressed="false" aria-label="Приостановить строку" data-i18n-aria-label="news.pause"><span aria-hidden="true">Ⅱ</span></button>
+      <a class="news-source" href="https://www.gov.kz/memleket/entities/mod/press/news?lang=ru" target="_blank" rel="noopener noreferrer" data-news-source data-i18n="news.source">Открыть источник</a>
+    </aside>
 
     <main id="top">
       <section class="hero reveal">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="hero.eyebrow">Военный колледж МО РК</p>
           <h1 data-i18n="hero.title">Цикл гуманитарных и общеобразовательных дисциплин</h1>
-          <p class="hero-text" data-i18n="hero.text1">
-            Цикл гуманитарных и общеобразовательных дисциплин является важным учебно-методическим подразделением Военного колледжа Министерства обороны Республики Казахстан. Его деятельность направлена на формирование у кадетов языковой, гуманитарной, гражданской и профессиональной компетентности.
-          </p>
-          <p class="hero-text hero-text-secondary" data-i18n="hero.text2">
-            Преподаватели цикла обеспечивают качественную подготовку по дисциплинам гуманитарного и общеобразовательного направлений, воспитывают патриотизм, культуру речи, ответственность, уважение к истории, традициям и ценностям Республики Казахстан.
-          </p>
+          <p class="hero-text" data-i18n="hero.text1">Языковая, гуманитарная и общеобразовательная подготовка кадетов Военного колледжа Министерства обороны Республики Казахстан.</p>
 
           <div class="hero-actions">
             <a class="button button-primary" href="#about" data-i18n="hero.primary">Подробнее о цикле</a>
             <a class="button button-secondary" href="#history" data-i18n="hero.secondary">История цикла</a>
           </div>
 
-          <ul class="hero-points">
-            <li data-i18n="hero.point1">Подготовка кадетов по гуманитарным и общеобразовательным направлениям</li>
-            <li data-i18n="hero.point2">Методическая, воспитательная и исследовательская работа</li>
-            <li data-i18n="hero.point3">Поддержка олимпиад, конференций и тематических мероприятий</li>
-          </ul>
         </div>
 
         <aside class="hero-panel">
-          <p class="status" data-i18n="hero.status">Учебно-методическое подразделение</p>
+          <p class="status" data-i18n="hero.status">Знания. Культура. Ответственность.</p>
           <div class="hero-emblem-frame" aria-hidden="true">
             <img
               class="hero-emblem"
-              src="assets/emblem-circle.png"
+              src="assets/emblem-circle.webp"
               alt=""
-              loading="lazy"
+              width="640"
+              height="640"
+              fetchpriority="high"
             >
           </div>
           <div class="hero-panel-block">
@@ -131,25 +137,16 @@
         <div class="section-shell split-section reveal">
           <div class="section-heading">
             <p class="eyebrow" data-i18n="about.eyebrow">О цикле</p>
-            <h2 data-i18n="about.title">Назначение и роль цикла в подготовке кадетов</h2>
-            <p class="section-text" data-i18n="about.text1">
-              Цикл гуманитарных и общеобразовательных дисциплин координирует преподавание
-              предметов, которые развивают мышление, языковую грамотность, правовую и
-              историческую культуру, а также поддерживают воспитание патриотизма,
-              ответственности и уважения к службе.
-            </p>
-            <p class="section-text" data-i18n="about.text2">
-              На занятиях кадеты изучают дисциплины языкового, гуманитарного, социального и общеобразовательного направлений. Особое внимание уделяется развитию коммуникативных навыков, умению грамотно выражать свои мысли, анализировать информацию, работать с текстами, выступать перед аудиторией и применять полученные знания в профессиональной деятельности.
-            </p>
-            <p class="section-text" data-i18n="about.text3">
-              Деятельность цикла сочетает учебную, методическую, воспитательную и военно-патриотическую работу. Это позволяет формировать у кадетов не только теоретические знания, но и личностные качества, необходимые будущему защитнику Отечества.
-            </p>
+            <h2 data-i18n="about.title">Гуманитарная подготовка в системе военного образования</h2>
+            <p class="section-text" data-i18n="about.text1">Цикл гуманитарных и общеобразовательных дисциплин занимает особое место в образовательной и воспитательной системе Военного колледжа Министерства обороны Республики Казахстан. Его работа направлена не только на передачу знаний, но и на формирование личности будущего военнослужащего, развитие гражданской ответственности, культуры общения, профессиональной речи и патриотического сознания.</p>
+            <p class="section-text" data-i18n="about.text2">На занятиях кадеты изучают дисциплины языкового, гуманитарного, социального и общеобразовательного направлений. Особое внимание уделяется развитию коммуникативных навыков, умению грамотно выражать свои мысли, анализировать информацию, работать с текстами, выступать перед аудиторией и применять полученные знания в профессиональной деятельности.</p>
+            <p class="section-text" data-i18n="about.text3">Деятельность цикла сочетает учебную, методическую, воспитательную и военно-патриотическую работу. Это позволяет формировать у кадетов не только теоретические знания, но и личностные качества, необходимые будущему защитнику Отечества.</p>
           </div>
 
           <div class="stats-panel">
             <div class="stat">
-              <strong data-i18n="about.stat1Value">1996</strong>
-              <span data-i18n="about.stat1">с года — история становления и развития цикла</span>
+              <strong data-i18n="about.stat1Value">С 1996 года</strong>
+              <span data-i18n="about.stat1">история становления и развития цикла</span>
             </div>
             <div class="stat">
               <strong data-i18n="about.stat2Value">Язык</strong>
@@ -172,12 +169,8 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="history.eyebrow">История</p>
             <h2 data-i18n="history.title">От цикла общеобразовательных дисциплин к гуманитарному направлению</h2>
-            <p class="section-text" data-i18n="history.text1">
-              Цикл гуманитарных и общеобразовательных дисциплин ведёт свою историю с сентября 1996 года, когда в Кадетском корпусе был образован цикл общеобразовательных дисциплин. С первых лет своего существования он стал важной частью образовательной системы учебного заведения, обеспечивая подготовку кадетов по языковым, гуманитарным, социальным и общеобразовательным направлениям.
-            </p>
-            <p class="section-text" data-i18n="history.text2">
-              В разные годы руководство циклом осуществляли офицеры и педагоги, внёсшие вклад в его становление и развитие. История цикла отражает не только развитие образовательной работы, но и усиление гуманитарной подготовки в системе военного образования.
-            </p>
+            <p class="section-text" data-i18n="history.text1">Цикл гуманитарных и общеобразовательных дисциплин ведёт свою историю с сентября 1996 года, когда в Кадетском корпусе был образован цикл общеобразовательных дисциплин. С первых лет своего существования он стал важной частью образовательной системы учебного заведения, обеспечивая подготовку кадетов по языковым, гуманитарным, социальным и общеобразовательным направлениям.</p>
+            <p class="section-text" data-i18n="history.text2">В разные годы руководство циклом осуществляли офицеры и педагоги, внёсшие вклад в его становление и развитие. История цикла отражает не только развитие образовательной работы, но и усиление гуманитарной подготовки в системе военного образования.</p>
           </div>
 
           <div class="history-timeline">
@@ -185,9 +178,7 @@
               <div class="timeline-period" data-i18n="history.item1Period">1996 год</div>
               <div class="timeline-card">
                 <h3 data-i18n="history.item1Title">Образование цикла общеобразовательных дисциплин</h3>
-                <p data-i18n="history.item1Text">
-                  В сентябре 1996 года в Кадетском корпусе был образован цикл общеобразовательных дисциплин, который стал основой гуманитарной и языковой подготовки кадетов.
-                </p>
+                <p data-i18n="history.item1Text">В сентябре 1996 года в Кадетском корпусе был образован цикл общеобразовательных дисциплин, который стал основой гуманитарной и языковой подготовки кадетов.</p>
               </div>
             </article>
 
@@ -195,9 +186,7 @@
               <div class="timeline-period" data-i18n="history.item2Period">Период становления</div>
               <div class="timeline-card">
                 <h3 data-i18n="history.item2Title">Первые преподаватели и методические традиции</h3>
-                <p data-i18n="history.item2Text">
-                  У истоков становления цикла стояли опытные педагоги, чьи профессионализм, педагогический опыт и преданность делу заложили основу учебно-воспитательного процесса и дальнейшего развития гуманитарного направления.
-                </p>
+                <p data-i18n="history.item2Text">У истоков становления цикла стояли опытные педагоги, чьи профессионализм, педагогический опыт и преданность делу заложили основу учебно-воспитательного процесса и дальнейшего развития гуманитарного направления.</p>
               </div>
             </article>
 
@@ -205,9 +194,7 @@
               <div class="timeline-period" data-i18n="history.item3Period">Преобразование</div>
               <div class="timeline-card">
                 <h3 data-i18n="history.item3Title">Создание цикла гуманитарных и общеобразовательных дисциплин</h3>
-                <p data-i18n="history.item3Text">
-                  В последующие годы цикл общеобразовательных дисциплин был преобразован в цикл гуманитарных и общеобразовательных дисциплин. Это изменение отразило расширение содержания образовательной работы и усиление роли гуманитарной подготовки в формировании личности будущего военнослужащего.
-                </p>
+                <p data-i18n="history.item3Text">В последующие годы цикл общеобразовательных дисциплин был преобразован в цикл гуманитарных и общеобразовательных дисциплин. Это изменение отразило расширение содержания образовательной работы и усиление роли гуманитарной подготовки в формировании личности будущего военнослужащего.</p>
               </div>
             </article>
 
@@ -215,9 +202,7 @@
               <div class="timeline-period" data-i18n="history.item4Period">Современный этап</div>
               <div class="timeline-card">
                 <h3 data-i18n="history.item4Title">Гуманитарная подготовка кадетов на современном этапе</h3>
-                <p data-i18n="history.item4Text">
-                  Сегодня цикл гуманитарных и общеобразовательных дисциплин продолжает развиваться, обеспечивая гуманитарную, языковую и общеобразовательную подготовку кадетов, формируя культуру речи, патриотизм и профессиональную компетентность.
-                </p>
+                <p data-i18n="history.item4Text">Сегодня цикл гуманитарных и общеобразовательных дисциплин продолжает развиваться, обеспечивая гуманитарную, языковую и общеобразовательную подготовку кадетов, формируя культуру речи, патриотизм и профессиональную компетентность.</p>
               </div>
             </article>
           </div>
@@ -226,17 +211,13 @@
             <article class="history-note">
               <span class="event-tag" data-i18n="history.originsLabel">У истоков цикла</span>
               <h3 data-i18n="history.originsTitle">Первые преподаватели</h3>
-              <p data-i18n="history.originsText">
-                Н.М. Пилипенко, М.К. Космагамбетова, Ф.С. Сосновская, Т.Н. Максимова, Е.В. Рождественская, А.Г. Каримова, Ю.Ж. Крыкбесов и другие преподаватели.
-              </p>
+              <p data-i18n="history.originsText">Н.М. Пилипенко, М.К. Космагамбетова, Ф.С. Сосновская, Т.Н. Максимова, Е.В. Рождественская, А.Г. Каримова, Ю.Ж. Крыкбесов и другие преподаватели.</p>
             </article>
 
             <article class="history-note">
               <span class="event-tag" data-i18n="history.leadershipLabel">Руководители цикла</span>
               <h3 data-i18n="history.leadershipTitle">Преемственность руководства</h3>
-              <p data-i18n="history.leadershipText">
-                Первым заведующим циклом общеобразовательных дисциплин был Крыкбесов Юсуф Жагипарович. Первым начальником цикла гуманитарных и общеобразовательных дисциплин стал майор Асанов Кайрат Амангельдинович. В последующий период циклом руководил подполковник Милиди Константин Иванович.
-              </p>
+              <p data-i18n="history.leadershipText">Первым заведующим циклом общеобразовательных дисциплин был Крыкбесов Юсуф Жагипарович. Первым начальником цикла гуманитарных и общеобразовательных дисциплин стал майор Асанов Кайрат Амангельдинович. В последующий период циклом руководил подполковник Милиди Константин Иванович.</p>
             </article>
 
           </div>
@@ -248,18 +229,14 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="disciplines.eyebrow">Дисциплины</p>
             <h2 data-i18n="disciplines.title">Дисциплины цикла</h2>
-            <p class="section-text" data-i18n="disciplines.text1">
-              На разных этапах развития цикл обеспечивал преподавание дисциплин гуманитарного, языкового, социального и общеобразовательного направлений.
-            </p>
+            <p class="section-text" data-i18n="disciplines.text1">На разных этапах развития цикл обеспечивал преподавание дисциплин гуманитарного, языкового, социального и общеобразовательного направлений.</p>
           </div>
 
           <div class="discipline-layout">
             <article class="discipline-summary-card">
               <span class="card-index" data-i18n="disciplines.summaryLabel">Направления подготовки</span>
               <h3 data-i18n="disciplines.summaryTitle">Языковые, гуманитарные, социальные и прикладные дисциплины</h3>
-              <p data-i18n="disciplines.summaryText">
-                Дисциплины цикла направлены на развитие общей культуры кадетов, формирование грамотной устной и письменной речи, расширение кругозора, развитие критического мышления и подготовку к профессиональному общению в военной среде.
-              </p>
+              <p data-i18n="disciplines.summaryText">Содержание подготовки сочетает языковые дисциплины, историко-гуманитарные курсы, общественные науки и прикладные модули, связанные с военной средой и профессиональным общением.</p>
             </article>
 
             <div class="discipline-pill-grid">
@@ -280,12 +257,17 @@
               <span class="discipline-pill" data-i18n="disciplines.item15">Логика</span>
               <span class="discipline-pill" data-i18n="disciplines.item16">Военный менеджмент и логистика</span>
               <span class="discipline-pill" data-i18n="disciplines.item17">История современных войн</span>
+              <span class="discipline-pill" data-i18n="disciplines.item18">Математика</span>
+              <span class="discipline-pill" data-i18n="disciplines.item19">Физика</span>
+              <span class="discipline-pill" data-i18n="disciplines.item20">Казахский язык и литература</span>
+              <span class="discipline-pill" data-i18n="disciplines.item21">Графика и проектирование</span>
+              <span class="discipline-pill" data-i18n="disciplines.item22">Военная педагогика и психология</span>
+              <span class="discipline-pill" data-i18n="disciplines.item23">Основы военного права</span>
+              <span class="discipline-pill" data-i18n="disciplines.item24">Глобальная компетенция</span>
             </div>
           </div>
 
-          <p class="section-text discipline-note" data-i18n="disciplines.text2">
-            Дисциплины цикла направлены на развитие общей культуры кадетов, формирование грамотной устной и письменной речи, расширение кругозора, развитие критического мышления и подготовку к профессиональному общению в военной среде.
-          </p>
+          <p class="section-text discipline-note" data-i18n="disciplines.text2">Дисциплины цикла направлены на развитие общей культуры кадетов, формирование грамотной устной и письменной речи, расширение кругозора, развитие критического мышления и подготовку к профессиональному общению в военной среде.</p>
         </div>
       </section>
 
@@ -293,142 +275,160 @@
         <div class="section-shell reveal">
           <div class="section-heading">
             <p class="eyebrow" data-i18n="teachers.eyebrow">Преподаватели</p>
-            <h2 data-i18n="teachers.title">Педагогический состав цикла</h2>
-            <p class="section-text" data-i18n="teachers.text">
-              В этом разделе можно разместить фотографии преподавателей цикла, краткие биографии, квалификацию, педагогический стаж и перечень преподаваемых дисциплин. Ниже сохранён удобный формат карточек, который можно заполнить реальными данными.
-            </p>
+            <h2 data-i18n="teachers.title">Преподавательский состав цикла</h2>
+            <p class="section-text" data-i18n="teachers.text">Профессиональный опыт, педагогические традиции и современные подходы к подготовке кадетов.</p>
           </div>
 
           <div class="teacher-grid teacher-grid-single">
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/kazymov-talgat.png" alt="Казымов Талгат Муратович" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/kazymov-talgat.webp" alt="Казымов Талгат Муратович" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">01</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card10PhotoLabel">Военная педагогика</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card10Role">Сержант 2 класса, сержант цикла</span>
-              <span class="teacher-detail" data-i18n="teachers.card10Experience">Общий стаж: с 2010 года. Педагогический стаж: с 2021 года.</span>
-              <h3 class="teacher-name" data-i18n="teachers.card10Name">Казымов Талгат Муратович</h3>
-              <p class="teacher-bio" data-i18n="teachers.card10Bio">Образование: Жетисуский государственный университет имени Ильяса Жансугурова, бакалавр по специальности «Педагогика и психология», г. Талдыкорган; университет имени Абая Мырзахметова, магистр по специальности «Педагогика и психология», г. Кокшетау.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card10Subjects">Дисциплины: военная педагогика и психология, военная этика.</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card10Name">Казымов Талгат Муратович</h3>
+<span class="teacher-role" data-i18n="teachers.card10Role">Сержант 2 класса, сержант цикла</span>
+<p class="teacher-subjects" data-i18n="teachers.card10Subjects">Дисциплины: военная педагогика и психология, военная этика</p>
+<span class="teacher-detail" data-i18n="teachers.card10Experience">Общий стаж: с 2010 года. Педагогический стаж: с 2021 года.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card10Bio">Образование: Жетисуский государственный университет имени Ильяса Жансугурова, бакалавр по специальности «Педагогика и психология», г. Талдыкорган; университет имени Абая Мырзахметова, магистр по специальности «Педагогика и психология», г. Кокшетау.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/khoroshun-ivan.png" alt="Хорошун Иван Юрьевич" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/khoroshun-ivan.webp" alt="Хорошун Иван Юрьевич" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">02</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card1PhotoLabel">Лингвистика</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card1Role">Руководитель цикла</span>
-              <span class="teacher-detail" data-i18n="teachers.card1Experience">Стаж: информация уточняется</span>
-              <h3 class="teacher-name" data-i18n="teachers.card1Name">Фамилия Имя Отчество</h3>
-              <p class="teacher-bio" data-i18n="teachers.card1Bio">Краткая биография: образование, педагогический стаж, квалификационная категория, научно-методические интересы и основные направления работы.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card1Subjects">Дисциплины: руководство циклом, методическая работа, гуманитарные дисциплины</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card1Name">Хорошун Иван Юрьевич</h3>
+<span class="teacher-role" data-i18n="teachers.card1Role">Сержант, преподаватель (лингвист)</span>
+<p class="teacher-subjects" data-i18n="teachers.card1Subjects">Дисциплины: лингвистика, военная этика, основы военного права</p>
+<span class="teacher-detail" data-i18n="teachers.card1Experience">Общий стаж: с 2022 года. Педагогический стаж: с 2024 года.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card1Bio">Сержант Хорошун Иван Юрьевич ведёт занятия по лингвистическому направлению, а также по военной этике и основам военного права. Имеет степень магистра по филологическим наукам и степень бакалавра по специальности «Переводческое дело».</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/khasenova-larisa.png" alt="Хасенова Лариса Васильевна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/khasenova-larisa.webp" alt="Хасенова Лариса Васильевна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">03</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card2PhotoLabel">История</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card2Role">Преподаватель казахского языка</span>
-              <span class="teacher-detail" data-i18n="teachers.card2Experience">Стаж: информация уточняется</span>
-              <h3 class="teacher-name" data-i18n="teachers.card2Name">Фамилия Имя Отчество</h3>
-              <p class="teacher-bio" data-i18n="teachers.card2Bio">Здесь можно указать профессиональный путь преподавателя, участие в методической работе, результаты кадетов и основные формы учебной деятельности.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card2Subjects">Дисциплины: казахский язык, профессиональный казахский язык</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card2Name">Хасенова Лариса Васильевна</h3>
+<span class="teacher-role" data-i18n="teachers.card2Role">Гражданский преподаватель, преподаватель истории</span>
+<p class="teacher-subjects" data-i18n="teachers.card2Subjects">Дисциплины: всемирная история, история современного Казахстана</p>
+<span class="teacher-detail" data-i18n="teachers.card2Experience">Общий педагогический стаж: с 1998 года. Стаж работы в Военном колледже МО РК: с 2005 года.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card2Bio">Хасенова Лариса Васильевна ведёт дисциплины исторического направления. Имеет высшее образование: Омский государственный университет, квалификация — историк, преподаватель истории. Методическая проблема: развитие познавательной активности и аналитических навыков обучающихся через поэтапное обучение созданию и использованию структурно-логических схем при изучении исторического материала.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/kazhybayeva-gulmira.png" alt="Кажыбаева Гульмира Дамировна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/kazhybayeva-gulmira.webp" alt="Кажыбаева Гульмира Дамировна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">04</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card3PhotoLabel">Английский язык</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card3Role">Преподаватель английского языка</span>
-              <span class="teacher-detail" data-i18n="teachers.card3Experience">Стаж: информация уточняется</span>
-              <h3 class="teacher-name" data-i18n="teachers.card3Name">Фамилия Имя Отчество</h3>
-              <p class="teacher-bio" data-i18n="teachers.card3Bio">Подходит для информации о повышении квалификации, авторских материалах, языковых компетенциях и внеаудиторной работе с обучающимися.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card3Subjects">Дисциплины: английский язык, профессиональный английский язык</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card3Name">Кажыбаева Гульмира Дамировна</h3>
+<span class="teacher-role" data-i18n="teachers.card3Role">Преподаватель английского языка</span>
+<p class="teacher-subjects" data-i18n="teachers.card3Subjects">Дисциплины: английский язык</p>
+<span class="teacher-detail" data-i18n="teachers.card3Experience">Общий педагогический стаж: 14 лет. Стаж работы в Военном колледже МО РК: 14 лет.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card3Bio">Кажыбаева Гульмира Дамировна ведёт занятия по английскому языку. Окончила Кокшетауский государственный университет имени Шокана Уалиханова, квалификация — учитель английского языка. Методическая проблема: организация дифференцированного подхода на уроках английского языка в группах с разным уровнем подготовки.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/shayakhmetova-toleu.png" alt="Шаяхметова Толеу Казбековна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/shayakhmetova-toleu.webp" alt="Шаяхметова Толеу Казбековна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">05</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card4PhotoLabel">Казахский язык</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card4Role">Преподаватель истории и общественных дисциплин</span>
-              <span class="teacher-detail" data-i18n="teachers.card4Experience">Стаж: информация уточняется</span>
-              <h3 class="teacher-name" data-i18n="teachers.card4Name">Фамилия Имя Отчество</h3>
-              <p class="teacher-bio" data-i18n="teachers.card4Bio">В этом блоке удобно показать педагогическое кредо, достижения, участие в воспитательных мероприятиях и работу по военно-патриотическому направлению.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card4Subjects">Дисциплины: история Казахстана, всемирная история, философия</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card4Name">Шаяхметова Толеу Казбековна</h3>
+<span class="teacher-role" data-i18n="teachers.card4Role">Гражданский преподаватель, преподаватель казахского языка и литературы</span>
+<p class="teacher-subjects" data-i18n="teachers.card4Subjects">Дисциплины: профессиональный казахский язык, казахский язык и литература, казахская литература, глобальная компетенция</p>
+<span class="teacher-detail" data-i18n="teachers.card4Experience">Общий педагогический стаж: 26 лет. Стаж работы в Военном колледже МО РК: 23 года.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card4Bio">Шаяхметова Толеу Казбековна преподаёт казахский язык и литературу. Получила образование в городе Кокшетау, в Институте имени Шокана Уалиханова, на филологическом факультете; квалификация — учитель казахского языка и литературы. Методическая тема: развитие творческих способностей кадетов на уроках казахской литературы.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/rozhdestvenskaya-elena.png" alt="Рождественская Елена Владимировна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/rozhdestvenskaya-elena.webp" alt="Рождественская Елена Владимировна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">06</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card5PhotoLabel">Английский язык</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card5Role">Преподаватель английского языка</span>
-              <span class="teacher-detail" data-i18n="teachers.card5Experience">Стаж: информация уточняется</span>
-              <h3 class="teacher-name" data-i18n="teachers.card5Name">Рождественская Елена Владимировна</h3>
-              <p class="teacher-bio" data-i18n="teachers.card5Bio">Краткая информация о преподавателе.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card5Subjects">Дисциплины: английский язык</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card5Name">Рождественская Елена Владимировна</h3>
+<span class="teacher-role" data-i18n="teachers.card5Role">Гражданский преподаватель, преподаватель английского языка</span>
+<p class="teacher-subjects" data-i18n="teachers.card5Subjects">Дисциплины: английский язык</p>
+<span class="teacher-detail" data-i18n="teachers.card5Experience">Общий педагогический стаж: 34 года. Стаж работы в Военном колледже МО РК: 26 лет.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card5Bio">Рождественская Елена Владимировна преподаёт английский язык. Окончила Ташкентский государственный университет мировых языков, квалификация — учитель английского языка. Методическая тема: активизация деятельности кадетов на уроках английского языка.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/tazhibekova-nargiz.png" alt="Тажибекова Наргиз Кумарбековна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/tazhibekova-nargiz.webp" alt="Тажибекова Наргиз Кумарбековна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">07</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card6PhotoLabel">Информатика</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card6Role">Сотрудник Военного колледжа МО РК, преподаватель</span>
-              <span class="teacher-detail" data-i18n="teachers.card6Experience">Общий педагогический стаж: с 2014 года. Стаж работы в Военном колледже МО РК: с 01.09.2019.</span>
-              <h3 class="teacher-name" data-i18n="teachers.card6Name">Тажибекова Наргиз Кумарбековна</h3>
-              <p class="teacher-bio" data-i18n="teachers.card6Bio">Образование: Южно-Казахстанский государственный педагогический институт имени Өзбекәлі Жәнібеков, бакалавр, 2013 год. Методическая проблема: использование современных информационных технологий и интерактивных методов обучения для развития логического мышления, технических навыков и познавательной активности обучающихся.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card6Subjects">Дисциплины: информатика, физика, графика и проектирование.</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card6Name">Тажибекова Наргиз Кумарбековна</h3>
+<span class="teacher-role" data-i18n="teachers.card6Role">Сотрудник Военного колледжа МО РК, преподаватель</span>
+<p class="teacher-subjects" data-i18n="teachers.card6Subjects">Дисциплины: информатика, физика, графика и проектирование</p>
+<span class="teacher-detail" data-i18n="teachers.card6Experience">Общий педагогический стаж: с 2014 года. Стаж работы в Военном колледже МО РК: с 01.09.2019.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card6Bio">Образование: Южно-Казахстанский государственный педагогический институт имени Өзбекәлі Жәнібеков, бакалавр, 2013 год. Методическая проблема: использование современных информационных технологий и интерактивных методов обучения для развития логического мышления, технических навыков и познавательной активности обучающихся.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/kulmagambetova-saule.png" alt="Кульмагамбетова Сауле Галимовна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/kulmagambetova-saule.webp" alt="Кульмагамбетова Сауле Галимовна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">08</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card7PhotoLabel">Математика</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card7Role">Преподаватель математики</span>
-              <span class="teacher-detail" data-i18n="teachers.card7Experience">Общий педагогический стаж: 47 лет. Стаж работы в Кадетском корпусе: с 2000 года.</span>
-              <h3 class="teacher-name" data-i18n="teachers.card7Name">Кульмагамбетова Сауле Галимовна</h3>
-              <p class="teacher-bio" data-i18n="teachers.card7Bio">Образование: Кокчетавский педагогический институт, физико-математический факультет, специальность «Математик», 1974 год. Методическая проблема: дифференцированный подход на уроках математики.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card7Subjects">Дисциплина: математика.</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card7Name">Кульмагамбетова Сауле Галимовна</h3>
+<span class="teacher-role" data-i18n="teachers.card7Role">Преподаватель математики</span>
+<p class="teacher-subjects" data-i18n="teachers.card7Subjects">Дисциплина: математика</p>
+<span class="teacher-detail" data-i18n="teachers.card7Experience">Общий педагогический стаж: 47 лет. Стаж работы в Кадетском корпусе: с 2000 года.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card7Bio">Образование: Кокчетавский педагогический институт, физико-математический факультет, специальность «Математик», 1974 год. Методическая проблема: дифференцированный подход на уроках математики.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/beysenova-gulzada.png" alt="Бейсенова Гулзада Кабдушевна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/beysenova-gulzada.webp" alt="Бейсенова Гулзада Кабдушевна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">09</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card8PhotoLabel">Казахский язык</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card8Role">Преподаватель казахского языка и литературы</span>
-              <span class="teacher-detail" data-i18n="teachers.card8Experience">Общий педагогический стаж: 30 лет. Стаж работы в Кадетском корпусе: 19 лет.</span>
-              <h3 class="teacher-name" data-i18n="teachers.card8Name">Бейсенова Гулзада Кабдушевна</h3>
-              <p class="teacher-bio" data-i18n="teachers.card8Bio">Образование: Кокшетауский университет имени Ш. Уалиханова, 2006 год. Квалификация: учитель казахского языка и литературы. Методическая проблема: повышение учебной грамотности кадетов через использование информационно-коммуникативных технологий при обучении казахскому языку и литературе.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card8Subjects">Дисциплины: казахский язык и литература.</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card8Name">Бейсенова Гулзада Кабдушевна</h3>
+<span class="teacher-role" data-i18n="teachers.card8Role">Преподаватель казахского языка и литературы</span>
+<p class="teacher-subjects" data-i18n="teachers.card8Subjects">Дисциплины: казахский язык и литература</p>
+<span class="teacher-detail" data-i18n="teachers.card8Experience">Общий педагогический стаж: 30 лет. Стаж работы в Кадетском корпусе: 19 лет.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card8Bio">Образование: Кокшетауский университет имени Ш. Уалиханова, 2006 год. Квалификация: учитель казахского языка и литературы. Методическая проблема: повышение учебной грамотности кадетов через использование информационно-коммуникативных технологий при обучении казахскому языку и литературе.</p>
+</details>
+</article>
 
             <article class="teacher-card">
-              <div class="teacher-photo teacher-photo-real">
-                <img src="assets/erkebaeva-dinara.png" alt="Еркебаева Динара Рафагатовна" loading="lazy">
+<div class="teacher-photo teacher-photo-real">
+                <img src="assets/erkebaeva-dinara.webp" alt="Еркебаева Динара Рафагатовна" loading="lazy" width="600" height="750" decoding="async">
                 <span class="teacher-index">10</span>
                 <span class="teacher-photo-label" data-i18n="teachers.card9PhotoLabel">Информатика</span>
               </div>
-              <span class="teacher-role" data-i18n="teachers.card9Role">Педагог-модератор, преподаватель информатики</span>
-              <span class="teacher-detail" data-i18n="teachers.card9Experience">Общий педагогический стаж: 22 года. Стаж работы в Военном колледже МО РК: 22 года.</span>
-              <h3 class="teacher-name" data-i18n="teachers.card9Name">Еркебаева Динара Рафагатовна</h3>
-              <p class="teacher-bio" data-i18n="teachers.card9Bio">Образование: высшее, программист-экономист. Методическая проблема: индивидуальный дифференцированный подход на уроках информатики.</p>
-              <p class="teacher-subjects" data-i18n="teachers.card9Subjects">Дисциплины: информатика, логика.</p>
-            </article>
+<h3 class="teacher-name" data-i18n="teachers.card9Name">Еркебаева Динара Рафагатовна</h3>
+<span class="teacher-role" data-i18n="teachers.card9Role">Педагог-модератор, преподаватель информатики</span>
+<p class="teacher-subjects" data-i18n="teachers.card9Subjects">Дисциплины: информатика, логика</p>
+<span class="teacher-detail" data-i18n="teachers.card9Experience">Общий педагогический стаж: 22 года. Стаж работы в Военном колледже МО РК: 22 года.</span>
+<details class="teacher-more"><summary data-i18n="teachers.more">Образование и методическая работа</summary>
+<p class="teacher-bio" data-i18n="teachers.card9Bio">Образование: высшее, программист-экономист. Методическая проблема: индивидуальный дифференцированный подход на уроках информатики.</p>
+</details>
+</article>
           </div>
         </div>
       </section>
@@ -438,31 +438,23 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="traditions.eyebrow">Традиции</p>
             <h2 data-i18n="traditions.title">Педагогическое сотрудничество как основа работы цикла</h2>
-            <p class="section-text" data-i18n="traditions.text">
-              Особое место в истории цикла занимает развитие педагогического сотрудничества и активных методов обучения. Эти подходы сохранили актуальность и сегодня, поскольку современное военное образование требует активности, самостоятельности и осознанного отношения к обучению.
-            </p>
+            <p class="section-text" data-i18n="traditions.text">Особое место в истории цикла занимает развитие педагогического сотрудничества и активных методов обучения. Эти подходы сохранили актуальность и сегодня, поскольку современное военное образование требует активности, самостоятельности и осознанного отношения к обучению.</p>
           </div>
 
           <div class="feature-grid tradition-grid">
             <article class="feature-card">
               <h3 data-i18n="traditions.card1Title">Педагогика сотрудничества</h3>
-              <p data-i18n="traditions.card1Text">
-                Преподаватели цикла выстраивают занятия как совместную работу: помогают кадетам задавать вопросы, обсуждать материал, аргументировать свою позицию и применять знания на практике.
-              </p>
+              <p data-i18n="traditions.card1Text">Преподаватели цикла выстраивают занятия как совместную работу: помогают кадетам задавать вопросы, обсуждать материал, аргументировать свою позицию и применять знания на практике.</p>
             </article>
 
             <article class="feature-card">
               <h3 data-i18n="traditions.card2Title">Кадет как активный участник обучения</h3>
-              <p data-i18n="traditions.card2Text">
-                Такой подход превращал кадета из пассивного слушателя в активного участника учебного процесса, а преподавателя — в организатора совместной познавательной деятельности.
-              </p>
+              <p data-i18n="traditions.card2Text">Такой подход превращал кадета из пассивного слушателя в активного участника учебного процесса, а преподавателя — в организатора совместной познавательной деятельности.</p>
             </article>
 
             <article class="feature-card">
               <h3 data-i18n="traditions.card3Title">Память и преемственность</h3>
-              <p data-i18n="traditions.card3Text">
-                Память о преподавателях, внёсших вклад в становление цикла, бережно сохраняется в истории учебного заведения. Их труд и профессионализм остаются примером для нынешнего поколения преподавателей и кадетов.
-              </p>
+              <p data-i18n="traditions.card3Text">Память о преподавателях, внёсших вклад в становление цикла, бережно сохраняется в истории учебного заведения. Их труд и профессионализм остаются примером для нынешнего поколения преподавателей и кадетов.</p>
             </article>
           </div>
 
@@ -478,9 +470,7 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="activity.eyebrow">Деятельность</p>
             <h2 data-i18n="activity.title">Основные направления работы</h2>
-            <p class="section-text" data-i18n="activity.text">
-              Деятельность цикла объединяет учебную, методическую, воспитательную и военно-патриотическую работу. Каждый из этих блоков направлен на формирование знаний, ценностей и профессиональных качеств будущего военнослужащего.
-            </p>
+            <p class="section-text" data-i18n="activity.text">Деятельность цикла объединяет учебную, методическую, воспитательную и военно-патриотическую работу. Каждый из этих блоков направлен на формирование знаний, ценностей и профессиональных качеств будущего военнослужащего.</p>
           </div>
 
           <div class="feature-grid">
@@ -512,9 +502,7 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="achievements.eyebrow">Достижения</p>
             <h2 data-i18n="achievements.title">Развитие условий обучения и достижения кадетов</h2>
-            <p class="section-text" data-i18n="achievements.text">
-              С развитием учебного заведения укреплялась и материально-техническая база цикла. Учебные кабинеты оснащались современным оборудованием, интерактивными средствами обучения, учебной и методической литературой.
-            </p>
+            <p class="section-text" data-i18n="achievements.text">С развитием учебного заведения укреплялась и материально-техническая база цикла. Учебные кабинеты оснащались современным оборудованием, интерактивными средствами обучения, учебной и методической литературой.</p>
           </div>
 
           <div class="event-grid">
@@ -544,9 +532,7 @@
           <div class="section-heading">
             <p class="eyebrow" data-i18n="today.eyebrow">Цикл сегодня</p>
             <h2 data-i18n="today.title">Современная образовательная и воспитательная миссия</h2>
-            <p class="section-text" data-i18n="today.text1">
-              Сегодня цикл гуманитарных и общеобразовательных дисциплин продолжает выполнять важную образовательную и воспитательную миссию. Его деятельность направлена на подготовку грамотных, ответственных, патриотически воспитанных и профессионально ориентированных кадетов.
-            </p>
+            <p class="section-text" data-i18n="today.text1">Сегодня цикл гуманитарных и общеобразовательных дисциплин продолжает выполнять важную образовательную и воспитательную миссию. Его деятельность направлена на подготовку грамотных, ответственных, патриотически воспитанных и профессионально ориентированных кадетов.</p>
           </div>
 
           <div class="resource-list">
@@ -563,9 +549,7 @@
               <p data-i18n="today.card3Text">Цикл гуманитарных и общеобразовательных дисциплин сохраняет преемственность педагогических традиций и одновременно развивается в соответствии с современными требованиями военного образования.</p>
             </article>
           </div>
-          <div class="today-quote" data-i18n="today.quote">
-            Гуманитарная подготовка — основа формирования личности будущего военнослужащего.
-          </div>
+          <div class="today-quote" data-i18n="today.quote">Гуманитарная подготовка — основа формирования личности будущего военнослужащего.</div>
         </div>
       </section>
     </main>
@@ -574,7 +558,7 @@
       <div class="footer-top">
         <div class="footer-heading">
           <p class="eyebrow" data-i18n="contacts.eyebrow">Контакты</p>
-          <h2 data-i18n="contacts.title">Контакты цикла</h2>
+          <h2 data-i18n="contacts.title">Информация для связи с циклом</h2>
           <p class="footer-text" data-i18n="contacts.text">Для связи с циклом используйте актуальные контактные данные, указанные ниже.</p>
         </div>
 
@@ -595,13 +579,14 @@
       </div>
 
       <div class="footer-meta">
-        <p data-i18n="footer.college">Военный колледж</p>
+        <p data-i18n="footer.college">Военный колледж Министерства обороны Республики Казахстан</p>
         <p data-i18n="footer.cycle">Цикл гуманитарных и общеобразовательных дисциплин</p>
-        <p>&copy; <span id="year"></span></p>
+        <p>&copy; <span id="year">2026</span></p>
       </div>
     </footer>
   </div>
 
-  <script src="script.js"></script>
+  <script src="translations.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
