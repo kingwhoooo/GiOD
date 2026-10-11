@@ -64,6 +64,26 @@ function decorateSubjects() {
   });
 }
 
+function decorateExperience() {
+  document.querySelectorAll(".teacher-detail[data-i18n]").forEach((element) => {
+    const lines = translate(element.dataset.i18n).split(". ");
+    const content = lines.flatMap((line, index) => {
+      const row = document.createElement("span");
+      row.className = "teacher-experience-line";
+      const text = line + (index < lines.length - 1 ? "." : "");
+      const separator = text.indexOf(":");
+      if (separator < 0) row.textContent = text;
+      else {
+        const value = document.createElement("strong");
+        value.textContent = text.slice(separator + 1).trim();
+        row.append(document.createTextNode(text.slice(0, separator + 1) + " "), value);
+      }
+      return index ? [document.createTextNode(" "), row] : [row];
+    });
+    element.replaceChildren(...content);
+  });
+}
+
 function syncNews() {
   newsStrip.classList.toggle("is-paused", newsPaused);
   newsPause.setAttribute("aria-pressed", String(newsPaused));
@@ -206,6 +226,7 @@ function setLanguage(next) {
     else link.removeAttribute("aria-current");
   });
   decorateSubjects();
+  decorateExperience();
   syncNews();
   loadNews(true);
 }
@@ -263,8 +284,9 @@ let navFrame = null;
 function updateNavigation() {
   navFrame = null;
   let active = "";
+  const navOffset = document.querySelector(".site-header").getBoundingClientRect().bottom + 32;
   for (const section of sections) {
-    if (section.getBoundingClientRect().top <= 160) active = section.id;
+    if (section.getBoundingClientRect().top <= navOffset) active = section.id;
   }
   siteNav.querySelectorAll("a").forEach((link) => {
     if (link.getAttribute("href") === "#" + active) link.setAttribute("aria-current", "location");
