@@ -22,7 +22,7 @@ template = template.replace(/<article class="teacher-card">([\s\S]*?)<\/article>
 template = template.replace(/<img src="assets\/([^".]+)\.png"([^>]*)>/g, (_, name, attributes) => `<img src="assets/${name}.webp"${attributes} width="600" height="750" decoding="async">`);
 template = template.replace(/(<meta property="og:image" content=")[^"]+/, '$1https://military-college-humanities.pages.dev/assets/emblem-social.png');
 const usedKeys = new Set([...template.matchAll(/data-i18n(?:-aria-label)?="([^"]+)"/g)].map((match) => match[1]));
-for (const key of ["site.title", "meta.description", "news.resume", "news.unavailable", "news.local", "news.updated", "news.cached", "news.saved"]) usedKeys.add(key);
+for (const key of ["site.title", "meta.description", "news.resume", "news.unavailable", "news.local", "news.updated", "news.cached", "news.saved", "news.archive", "news.savedAt"]) usedKeys.add(key);
 for (const language of Object.keys(translations)) {
   translations[language] = Object.fromEntries(Object.entries(translations[language]).filter(([key]) => usedKeys.has(key)));
 }

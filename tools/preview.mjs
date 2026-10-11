@@ -4,7 +4,9 @@ import path from "node:path";
 import { newsResponse } from "../lib/akorda-news.mjs";
 
 const root = process.cwd();
-const mime = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".png": "image/png", ".webp": "image/webp", ".xml": "application/xml", ".txt": "text/plain" };
+const mime = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".png": "image/png", ".webp": "image/webp", ".xml": "application/xml", ".txt": "text/plain", ".json": "application/json; charset=utf-8" };
+const port = Number(process.env.PORT || 4173);
+const offline = process.env.NEWS_OFFLINE === "1";
 const storedNews = new Map();
 const newsCache = {
   async match(key) { return storedNews.get(key.url)?.clone(); },
@@ -14,7 +16,10 @@ http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
     if (pathname === "/api/news" && request.method === "GET") {
-      const result = await newsResponse(new Request(new URL(request.url, "http://127.0.0.1:4173")), { cache: newsCache });
+      const result = await newsResponse(new Request(new URL(request.url, `http://127.0.0.1:${port}`)), {
+        cache: newsCache,
+        ...(offline ? { fetcher: async () => { throw new Error("Simulated source outage"); } } : {})
+      });
       response.writeHead(result.status, Object.fromEntries(result.headers));
       response.end(await result.text());
       return;
@@ -29,4 +34,4 @@ http.createServer(async (request, response) => {
     response.writeHead(404);
     response.end("Not found");
   }
-}).listen(4173, "127.0.0.1", () => console.log("Preview: http://127.0.0.1:4173"));
+}).listen(port, "127.0.0.1", () => console.log(`Preview: http://127.0.0.1:${port}${offline ? " (news source offline)" : ""}`));

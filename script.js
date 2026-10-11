@@ -77,7 +77,10 @@ newsPause.addEventListener("click", () => { newsPaused = !newsPaused; syncNews()
 
 function newsStatus(key) {
   newsStrip.classList.remove("has-news");
-  newsStrip.querySelector(".news-label").removeAttribute("data-cache-label");
+  delete newsStrip.dataset.newsFetchedAt;
+  const label = newsStrip.querySelector(".news-label");
+  label.removeAttribute("data-cache-label");
+  label.removeAttribute("title");
   const message = document.createElement("span");
   message.className = "news-message";
   message.textContent = translate(key);
@@ -85,7 +88,18 @@ function newsStatus(key) {
   newsPause.disabled = true;
 }
 
+function markNewsSaved() {
+  const savedAt = new Date(newsStrip.dataset.newsFetchedAt);
+  const archived = Date.now() - savedAt.getTime() > 7 * 24 * 60 * 60 * 1000;
+  const label = newsStrip.querySelector(".news-label");
+  label.dataset.cacheLabel = translate(archived ? "news.archive" : "news.saved");
+  label.title = `${translate("news.savedAt")} ${savedAt.toLocaleDateString(language === "kk" ? "kk-KZ" : language === "ru" ? "ru-RU" : "en-GB")}`;
+  newsStrip.querySelector(".news-feedback").textContent = translate("news.cached");
+}
+
 function renderNews(data) {
+  const fetchedAt = Date.parse(data.fetchedAt);
+  if (data.language !== language || !Number.isFinite(fetchedAt) || fetchedAt > Date.now() + 5 * 60 * 1000) throw new Error("Invalid news metadata");
   const list = document.createElement("ul");
   list.className = "news-items";
   const prefix = `/${language === "kk" ? "kz" : language}/`;
@@ -93,7 +107,7 @@ function renderNews(data) {
     let url;
     try { url = new URL(item.url); } catch { continue; }
     if (url.origin !== "https://www.akorda.kz" || !url.pathname.startsWith(prefix) || url.username || url.password || url.search || url.hash) continue;
-    if (typeof item.title !== "string" || !item.title.trim() || item.title.length > 500 || typeof item.publishedLabel !== "string" || item.publishedLabel.length > 80) continue;
+    if (typeof item.title !== "string" || !item.title.trim() || item.title.length > 500 || typeof item.publishedLabel !== "string" || item.publishedLabel.length > 80 || !/\b20\d{2}\b/.test(item.publishedLabel)) continue;
     const entry = document.createElement("li");
     const link = document.createElement("a");
     link.className = "news-headline";
@@ -115,11 +129,15 @@ function renderNews(data) {
   copy.querySelectorAll("a").forEach((link) => { link.tabIndex = -1; });
   newsTrack.replaceChildren(list, copy);
   newsStrip.classList.add("has-news");
+  newsStrip.dataset.newsFetchedAt = data.fetchedAt;
   newsPause.disabled = false;
   const label = newsStrip.querySelector(".news-label");
-  if (data.stale) label.dataset.cacheLabel = translate("news.saved");
-  else label.removeAttribute("data-cache-label");
-  newsStrip.querySelector(".news-feedback").textContent = translate(data.stale ? "news.cached" : "news.updated");
+  if (data.stale) markNewsSaved();
+  else {
+    label.removeAttribute("data-cache-label");
+    label.removeAttribute("title");
+    newsStrip.querySelector(".news-feedback").textContent = translate("news.updated");
+  }
   requestAnimationFrame(() => newsTrack.style.setProperty("--news-duration", `${Math.max(30, list.scrollWidth / 42)}s`));
   syncNews();
 }
@@ -134,6 +152,18 @@ async function loadNews(reset = false) {
   if (location.protocol === "file:") return;
   const timeout = setTimeout(() => controller.abort(), 12000);
   try {
+    // A deploy-time copy works even when Cloudflare cannot reach the source.
+    if (!newsStrip.classList.contains("has-news")) {
+      try {
+        const saved = await fetch(`/data/news/${requestedLanguage}.json`, { signal: controller.signal, headers: { Accept: "application/json" } });
+        if (saved.ok) {
+          const data = await saved.json();
+          if (controller !== newsController || requestedLanguage !== language) return;
+          renderNews({ ...data, stale: true });
+        }
+      } catch { /* A missing snapshot must not prevent the live request. */ }
+    }
+    if (controller !== newsController || requestedLanguage !== language) return;
     const response = await fetch(`/api/news?lang=${requestedLanguage}`, { signal: controller.signal, headers: { Accept: "application/json" } });
     if (!response.ok) throw new Error("News unavailable");
     const data = await response.json();
@@ -141,9 +171,10 @@ async function loadNews(reset = false) {
     renderNews(data);
   } catch {
     if (controller !== newsController || requestedLanguage !== language) return;
-    if (!newsStrip.classList.contains("has-news")) newsStatus("news.unavailable");
-    else newsStrip.querySelector(".news-label").dataset.cacheLabel = translate("news.saved");
-    newsStrip.querySelector(".news-feedback").textContent = translate("news.unavailable");
+    if (!newsStrip.classList.contains("has-news")) {
+      newsStatus("news.unavailable");
+      newsStrip.querySelector(".news-feedback").textContent = translate("news.unavailable");
+    } else markNewsSaved();
   } finally { clearTimeout(timeout); }
 }
 
